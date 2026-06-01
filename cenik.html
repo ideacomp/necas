@@ -137,6 +137,24 @@ p{margin:0 0 1em 0}
 @media (max-width:880px){.footer__inner{grid-template-columns:1fr 1fr; gap:32px} .footer__brand{grid-column:span 2}}
 @media (max-width:560px){.footer__inner{grid-template-columns:1fr} .footer__brand{grid-column:span 1}}
 
+/* DISCOUNT PANEL */
+.sleva-panel{background:var(--ink); border:1.5px solid rgba(230,51,41,.4); border-radius:var(--r-lg); padding:28px 32px; margin-bottom:48px; position:relative; overflow:hidden}
+.sleva-panel::before{content:""; position:absolute; inset:0; background:radial-gradient(600px 300px at 100% 0%, rgba(230,51,41,.20), transparent 60%); pointer-events:none}
+.sleva-panel__head{display:flex; align-items:center; gap:14px; margin-bottom:20px; position:relative; z-index:1}
+.sleva-panel__icon{width:44px; height:44px; background:var(--red); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0}
+.sleva-panel__icon svg{width:22px; height:22px; color:#fff}
+.sleva-panel__title{font-family:var(--f-display); font-weight:800; font-size:20px; text-transform:uppercase; color:#fff; letter-spacing:.01em}
+.sleva-panel__grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; z-index:1}
+.sleva-panel__item{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); border-radius:var(--r-md); padding:18px 20px}
+.sleva-panel__amount{font-family:var(--f-display); font-weight:900; font-size:32px; color:var(--red-2); line-height:1; margin-bottom:8px}
+.sleva-panel__desc{font-size:13px; color:rgba(255,255,255,.70); line-height:1.5}
+.sleva-panel__desc strong{color:#fff; font-weight:600}
+@media(max-width:680px){.sleva-panel__grid{grid-template-columns:1fr} .sleva-panel{padding:20px 20px}}
+
+/* DISCOUNT BADGE (inline in rows) */
+.sleva-tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--f-text); font-size:11.5px; font-weight:700; color:var(--red); background:var(--red-soft); border:1px solid rgba(230,51,41,.25); padding:3px 9px; border-radius:999px; margin-top:7px; letter-spacing:.02em; white-space:nowrap}
+.price-row.is-feature .sleva-tag{color:#FF8A82; background:rgba(255,138,130,.12); border-color:rgba(255,138,130,.25)}
+
 /* ANIM */
 [data-anim]{opacity:0; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
 [data-anim="up"]{transform:translateY(24px)}
@@ -156,7 +174,7 @@ p{margin:0 0 1em 0}
     <a href="index.html" class="logo">NEČAS<span class="dot">.</span><span class="small">Autoškola Ústí nad Labem</span></a>
     <div class="nav__links">
       <a href="index.html#kurzy">Kurzy</a>
-      <a href="index.html#proc-my">O nás</a>
+      <a href="instruktori.html">Instruktoři</a>
       <a href="vozovy-park.html">Vozový park</a>
       <a href="cenik.html" class="active">Ceník</a>
       <a href="index.html#kontakt">Kontakt</a>
@@ -176,7 +194,7 @@ p{margin:0 0 1em 0}
     <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="nav__drawer-card">
       <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="index.html#proc-my">O nás <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="instruktori.html">Instruktoři <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="cenik.html" style="background:var(--paper)">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -195,7 +213,7 @@ p{margin:0 0 1em 0}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Zpět na hlavní stránku
       </a>
-      <span class="eyebrow" data-anim="fade" data-delay="1">Ceník · Platné od 1. 1. 2025</span>
+      <span class="eyebrow" data-anim="fade" data-delay="1">Ceník · Platné od 1. 6. 2026</span>
       <h1 data-anim="up" data-delay="2">Přehledné<br/><span class="accent">ceny</span></h1>
       <p class="page-hero__lead" data-anim="up" data-delay="3">Možnost splátek až do tří splátek. Nezávazná konzultace zdarma. Všichni žáci jsou po celou dobu výcviku pojištěni.</p>
     </div>
@@ -207,6 +225,7 @@ p{margin:0 0 1em 0}
     <a href="#skupiny-a" class="price-nav__link is-active">Skupiny A</a>
     <a href="#skupina-b" class="price-nav__link">Skupina B</a>
     <a href="#sdruzeny" class="price-nav__link">Sdružený výcvik</a>
+    <a href="#rozsirujici" class="price-nav__link">Rozšiřující výcvik</a>
     <a href="#zkousky" class="price-nav__link">Zkoušky</a>
     <a href="#kondicni" class="price-nav__link">Kondiční &amp; doplňkový</a>
   </div>
@@ -216,12 +235,34 @@ p{margin:0 0 1em 0}
 <section class="section" style="background:var(--paper)">
   <div class="container">
 
+    <!-- Věrnostní slevy -->
+    <div class="sleva-panel" data-anim="up">
+      <div class="sleva-panel__head">
+        <div class="sleva-panel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <div class="sleva-panel__title">Věrnostní slevy — pro naše absolventy skupin A</div>
+      </div>
+      <div class="sleva-panel__grid">
+        <div class="sleva-panel__item">
+          <div class="sleva-panel__amount">−2 000 Kč</div>
+          <div class="sleva-panel__desc"><strong>Na každý další kurz skupin A</strong><br/>Pokud jste u nás v minulosti absolvovali jakékoli A (AM, A1, A2 nebo A)</div>
+        </div>
+        <div class="sleva-panel__item">
+          <div class="sleva-panel__amount">−3 000 Kč</div>
+          <div class="sleva-panel__desc"><strong>Na sdružený výcvik A+B</strong><br/>Absolventi jakéhokoli A u nás — platí pro A1+B, A2+B i A+B</div>
+        </div>
+        <div class="sleva-panel__item">
+          <div class="sleva-panel__amount">−3 000 Kč</div>
+          <div class="sleva-panel__desc"><strong>Na kurz skupiny B</strong><br/>Pokud máte skupinu A z naší autoškoly — B za 18 000 Kč místo 21 000 Kč</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Výcvik skupin A -->
     <div id="skupiny-a" class="price-anchor"></div>
     <div class="price-cat" data-anim="fade">
       <span class="price-cat__label">Výcvik skupin A</span>
       <span class="price-cat__line"></span>
-      <span class="price-cat__note">Individuální výcvik = cena + 20&nbsp;%</span>
+      <span class="price-cat__note">Individuální výcvik = cena + 20&nbsp;% · <strong style="color:var(--red)">absolventi jakéhokoli A u nás: −2 000 Kč</strong></span>
     </div>
     <div class="price-list">
       <article class="price-row" data-anim="up">
@@ -237,9 +278,10 @@ p{margin:0 0 1em 0}
         <div class="price-row__group">A1</div>
         <div>
           <div class="price-row__name">Lehké motocykly do 125&nbsp;cm³</div>
-          <p class="price-row__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Honda CG, skútr N-Max</p>
+          <p class="price-row__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Honda CG, skútr N-Max · bez ŘP: 17 000 Kč</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A</span>
         </div>
-        <div class="price-row__price"><small>cena kurzu</small>18 000 Kč</div>
+        <div class="price-row__price"><small>s AM řidičákem</small>16 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
       </article>
       <article class="price-row" data-anim="up">
@@ -247,8 +289,9 @@ p{margin:0 0 1em 0}
         <div>
           <div class="price-row__name">Motocykly do 35&nbsp;kW</div>
           <p class="price-row__desc">Od 18 let · Yamaha Tracer 7, Honda Rebel, Honda ADV 350 (automat)</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A</span>
         </div>
-        <div class="price-row__price"><small>cena kurzu</small>20 000 Kč</div>
+        <div class="price-row__price"><small>cena kurzu</small>19 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
       </article>
       <article class="price-row" data-anim="up">
@@ -256,8 +299,9 @@ p{margin:0 0 1em 0}
         <div>
           <div class="price-row__name">Motocykly bez omezení</div>
           <p class="price-row__desc">Od 24 let (nebo A2 → A po 2 letech) · Yamaha MT 07, Yamaha XJ6</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A</span>
         </div>
-        <div class="price-row__price"><small>cena kurzu</small>22 000 Kč</div>
+        <div class="price-row__price"><small>cena kurzu</small>20 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
       </article>
     </div>
@@ -267,16 +311,17 @@ p{margin:0 0 1em 0}
     <div class="price-cat" data-anim="fade">
       <span class="price-cat__label">Výcvik skupiny B</span>
       <span class="price-cat__line"></span>
-      <span class="price-cat__note">Držitelé skupiny A: sleva na 20 000 Kč</span>
+      <span class="price-cat__note">Naši absolventi skupin A: sleva 3 000 Kč → 18 000 Kč</span>
     </div>
     <div class="price-list">
       <article class="price-row is-feature" data-anim="up">
         <div class="price-row__group">B</div>
         <div>
           <div class="price-row__name">Osobní automobily</div>
-          <p class="price-row__desc">Od 18 let · Seat Arona, Citroën C3, Škoda Citigo · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t</p>
+          <p class="price-row__desc">Od 18 let · Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy sk. A → 18 000 Kč</span>
         </div>
-        <div class="price-row__price"><small>cena kurzu</small>25 000 Kč</div>
+        <div class="price-row__price"><small>cena kurzu</small>21 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
       </article>
     </div>
@@ -286,14 +331,15 @@ p{margin:0 0 1em 0}
     <div class="price-cat" data-anim="fade">
       <span class="price-cat__label">Sdružený výcvik moto + auto</span>
       <span class="price-cat__line"></span>
-      <span class="price-cat__note">Individuální výcvik = cena + 20&nbsp;%</span>
+      <span class="price-cat__note">Individuální výcvik = cena + 20&nbsp;% · <strong style="color:var(--red)">absolventi jakéhokoli A u nás: −3 000 Kč</strong></span>
     </div>
     <div class="price-list">
       <article class="price-row is-feature" data-anim="up">
         <div class="price-row__group" style="font-size:28px">A1+B</div>
         <div>
           <div class="price-row__name">A1 (125&nbsp;cm³) + osobní automobil</div>
-          <p class="price-row__desc">Od 18 let · Seat Arona, Citroën C3, Škoda Citigo · automat Toyota Corolla k&nbsp;dispozici</p>
+          <p class="price-row__desc">Od 18 let · Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy jakéhokoli A → 30 000 Kč</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>33 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
@@ -302,19 +348,109 @@ p{margin:0 0 1em 0}
         <div class="price-row__group" style="font-size:28px">A2+B</div>
         <div>
           <div class="price-row__name">A2 (35&nbsp;kW) + osobní automobil</div>
-          <p class="price-row__desc">Od 18 let · Seat Arona, Citroën C3, Škoda Citigo · automat Toyota Corolla k&nbsp;dispozici</p>
+          <p class="price-row__desc">Od 18 let · Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy jakéhokoli A → 31 000 Kč</span>
         </div>
-        <div class="price-row__price"><small>cena kurzu</small>35 000 Kč</div>
+        <div class="price-row__price"><small>cena kurzu</small>34 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
       </article>
       <article class="price-row is-feature" data-anim="up">
         <div class="price-row__group" style="font-size:28px">A+B</div>
         <div>
           <div class="price-row__name">Plné A (bez omezení) + osobní automobil</div>
-          <p class="price-row__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6 · Seat Arona, Citroën C3, Škoda Citigo</p>
+          <p class="price-row__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6 · Toyota Aygo, Citroën C3</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy jakéhokoli A → 32 000 Kč</span>
         </div>
-        <div class="price-row__price"><small>cena kurzu</small>37 000 Kč</div>
+        <div class="price-row__price"><small>cena kurzu</small>35 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
+      </article>
+    </div>
+
+    <!-- Rozšiřující výcvik -->
+    <div id="rozsirujici" class="price-anchor"></div>
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Rozšiřující výcvik — upgrade skupin A</span>
+      <span class="price-cat__line"></span>
+      <span class="price-cat__note">Rozšíření z B na skupiny A = standardní ceny kurzů skupin A</span>
+    </div>
+    <div class="price-list">
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A1<br/>→A2</div>
+        <div>
+          <div class="price-row__name">Rozšíření z A1 na A2</div>
+          <p class="price-row__desc">Zkrácený výcvik pro držitele A1 · podmínka: 2 roky s&nbsp;A1</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 4 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>6 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A2<br/>→A</div>
+        <div>
+          <div class="price-row__name">Rozšíření z A2 na plné A</div>
+          <p class="price-row__desc">Zkrácený výcvik pro držitele A2 · podmínka: 2 roky s&nbsp;A2</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 4 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>6 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A1<br/>→A</div>
+        <div>
+          <div class="price-row__name">Přímé rozšíření z A1 na plné A</div>
+          <p class="price-row__desc">Pro držitele A1 — přeskočení A2 · rozšířený výcvik</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 10 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>12 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A2<br/>→A</div>
+        <div>
+          <div class="price-row__name">Rozšíření A2 → plné A (rozšířený výcvik)</div>
+          <p class="price-row__desc">Komplexní výcvik pro přechod z&nbsp;A2 na neomezené A</p>
+          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 10 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>12 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+    </div>
+
+    <div class="price-cat" data-anim="fade" style="padding-top:28px">
+      <span class="price-cat__label">Rozšíření + skupina B — kombinované balíčky</span>
+      <span class="price-cat__line"></span>
+      <span class="price-cat__note">Sleva pro naše bývalé žáky</span>
+    </div>
+    <div class="price-list">
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A1/A<br/>+B</div>
+        <div>
+          <div class="price-row__name">Rozšíření A1→A + skupina B</div>
+          <p class="price-row__desc">Plné A + osobní automobil</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy sk. A1 → 27 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena balíčku</small>30 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A1/A2<br/>+B</div>
+        <div>
+          <div class="price-row__name">Rozšíření A1→A2 + skupina B</div>
+          <p class="price-row__desc">A2 + osobní automobil</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy sk. A1 → 25 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena balíčku</small>28 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">A2/A<br/>+B</div>
+        <div>
+          <div class="price-row__name">Rozšíření A2→A + skupina B</div>
+          <p class="price-row__desc">Plné A + osobní automobil</p>
+          <span class="sleva-tag">−3 000 Kč pro naše absolventy sk. A2 → 27 000 Kč</span>
+        </div>
+        <div class="price-row__price"><small>cena balíčku</small>30 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zájem</a></div>
       </article>
     </div>
 
@@ -331,7 +467,7 @@ p{margin:0 0 1em 0}
           <div class="price-row__name">Zkouška skupin AM nebo A1</div>
           <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
         </div>
-        <div class="price-row__price"><small>cena zkoušky</small>7 000 Kč</div>
+        <div class="price-row__price"><small>cena zkoušky</small>6 000 Kč</div>
         <div class="price-row__action"></div>
       </article>
       <article class="price-row" data-anim="up">
@@ -340,7 +476,7 @@ p{margin:0 0 1em 0}
           <div class="price-row__name">Zkouška skupiny A2</div>
           <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
         </div>
-        <div class="price-row__price"><small>cena zkoušky</small>7 000 Kč</div>
+        <div class="price-row__price"><small>cena zkoušky</small>6 000 Kč</div>
         <div class="price-row__action"></div>
       </article>
       <article class="price-row" data-anim="up">
@@ -349,7 +485,16 @@ p{margin:0 0 1em 0}
           <div class="price-row__name">Zkouška skupiny A</div>
           <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
         </div>
-        <div class="price-row__price"><small>cena zkoušky</small>7 000 Kč</div>
+        <div class="price-row__price"><small>cena zkoušky</small>6 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:48px">B</div>
+        <div>
+          <div class="price-row__name">Zkouška skupiny B</div>
+          <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>6 000 Kč</div>
         <div class="price-row__action"></div>
       </article>
       <article class="price-row" data-anim="up">
@@ -426,6 +571,15 @@ p{margin:0 0 1em 0}
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Objednat</a></div>
       </article>
       <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">Jízdy<br/>B</div>
+        <div>
+          <div class="price-row__name">Kondiční jízda — skupina B</div>
+          <p class="price-row__desc">90 minut reálné jízdy v&nbsp;provozu nebo na cvičišti s&nbsp;instruktorem</p>
+        </div>
+        <div class="price-row__price"><small>cena / 90 min</small>1 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Objednat</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
         <div class="price-row__group" style="font-size:20px;line-height:1.1">Převod<br/>žáka</div>
         <div>
           <div class="price-row__name">Převod žáka z jiné autoškoly</div>
@@ -438,7 +592,7 @@ p{margin:0 0 1em 0}
 
     <p class="price-note" data-anim="up" style="margin-top:32px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-      Správní poplatek <strong style="color:var(--ink); margin:0 4px">700 Kč</strong> za vydání řidičského průkazu se hradí samostatně v&nbsp;den zkoušky přímo na Magistrátu. Ceny jsou platné od 1.&nbsp;1.&nbsp;2025. Možnost splátek — domluvte se s&nbsp;námi.
+      Správní poplatek <strong style="color:var(--ink); margin:0 4px">700 Kč</strong> za vydání řidičského průkazu se hradí samostatně v&nbsp;den zkoušky přímo na Magistrátu. Ceny jsou platné od 1.&nbsp;6.&nbsp;2026. Možnost splátek — domluvte se s&nbsp;námi.
     </p>
 
   </div>
@@ -454,7 +608,7 @@ p{margin:0 0 1em 0}
         <a href="index.html" class="logo">NEČAS<span class="dot">.</span></a>
         <p>Rodinná autoškola s 33letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
       </div>
-      <div><h5>Stránky</h5><ul><li><a href="index.html#kurzy">Kurzy</a></li><li><a href="index.html#proc-my">O nás</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="cenik.html">Ceník</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+      <div><h5>Stránky</h5><ul><li><a href="index.html#kurzy">Kurzy</a></li><li><a href="instruktori.html">Instruktoři</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="cenik.html">Ceník</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
       <div><h5>Kurzy</h5><ul><li><a href="cenik.html">Skupiny A — motorky</a></li><li><a href="cenik.html">Sdružený A+B</a></li><li><a href="cenik.html">AM / A1 / A2</a></li><li><a href="cenik.html">Kondiční &amp; doplňkový</a></li></ul></div>
       <div><h5>Kontakt</h5><ul><li>Žukovova 546/15</li><li>400 03 Ústí nad Labem-Střekov</li><li><a href="tel:+420606222935">+420 606 222 935</a></li><li><a href="mailto:autoskola.necas@seznam.cz">autoskola.necas@seznam.cz</a></li></ul></div>
     </div>
@@ -493,7 +647,7 @@ p{margin:0 0 1em 0}
 
   // Price section tab nav active state
   const priceLinks = document.querySelectorAll('.price-nav__link');
-  const anchorIds = ['skupiny-a','skupina-b','sdruzeny','zkousky','kondicni'];
+  const anchorIds = ['skupiny-a','skupina-b','sdruzeny','rozsirujici','zkousky','kondicni'];
   const anchors = anchorIds.map(id => document.getElementById(id));
   function syncPriceNav() {
     const scrollMid = window.scrollY + 160;
@@ -503,6 +657,38 @@ p{margin:0 0 1em 0}
   }
   window.addEventListener('scroll', syncPriceNav, {passive:true});
   syncPriceNav();
+})();
+</script>
+<script>
+(function(){
+  // Mapování group textu → kurz kód
+  const grpMap = {
+    'AM':'am','A1':'a1','A2':'a2','A':'a','B':'b',
+    'A1+B':'a1b','A2+B':'a2b','A+B':'ab'
+  };
+  document.querySelectorAll('.price-row').forEach(row => {
+    const btn = row.querySelector('.price-row__action a[href*="kontakt"]');
+    if (!btn) return;
+    const grpEl = row.querySelector('.price-row__group');
+    const grpTxt = grpEl ? (grpEl.innerText || '').replace(/\s+/g, '') : '';
+    let kurz = grpMap[grpTxt] || null;
+    if (!kurz) {
+      // Najdi nejbližší price-anchor zpět mezi sourozenci
+      const list = row.closest('.price-list');
+      if (list) {
+        let el = list.previousElementSibling;
+        while (el) {
+          if (el.classList.contains('price-anchor') && el.id) {
+            if (el.id === 'rozsirujici') kurz = 'rozsirujici';
+            else if (el.id === 'kondicni') kurz = 'kondicni';
+            break;
+          }
+          el = el.previousElementSibling;
+        }
+      }
+    }
+    if (kurz) btn.href = 'index.html?kurz=' + kurz + '#kontakt';
+  });
 })();
 </script>
 </body>
