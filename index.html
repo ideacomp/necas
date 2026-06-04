@@ -12,11 +12,14 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* HERO — organic blob split */
-.hero{position:relative; background:var(--ink); color:#fff; overflow:hidden; min-height:clamp(580px,88vh,920px); display:flex; align-items:center; padding:clamp(100px,12vw,150px) 0 clamp(80px,10vw,120px)}
-/* Subtle diagonal wave lines (background texture like in reference) */
-.hero::before{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg, transparent 0px, transparent 40px, rgba(255,255,255,.022) 40px, rgba(255,255,255,.022) 41px); pointer-events:none; z-index:0}
-/* Organic yellow blob - right side, large border-radius = curved edge */
-.hero__blob{position:absolute; right:-4%; top:-8%; width:58%; height:116%; background:linear-gradient(155deg, var(--red-2) 0%, var(--red) 55%, #D9A000 100%); border-radius:50% 0 0 50% / 50% 0 0 50%; z-index:1; overflow:hidden}
+.hero{position:relative; background:linear-gradient(130deg, #060D1F 0%, #0C1A3A 40%, #13234E 100%); color:#fff; overflow:hidden; min-height:clamp(580px,88vh,920px); display:flex; align-items:center; padding:clamp(100px,12vw,150px) 0 clamp(80px,10vw,120px)}
+.hero::before{content:""; position:absolute; inset:0; pointer-events:none; z-index:0}
+.hero__waves{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0}
+@media(max-width:720px){.hero__waves{opacity:.7}}
+/* Amber glow bleeding in from blob + blue depth bottom-left */
+.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 75% 50%, rgba(230,120,0,.13) 0%, transparent 50%), radial-gradient(ellipse at 18% 82%, rgba(30,60,120,.55) 0%, transparent 38%); pointer-events:none; z-index:0}
+/* Organic yellow-orange blob - right side */
+.hero__blob{position:absolute; right:-4%; top:-8%; width:58%; height:116%; background:linear-gradient(165deg, #FFCC00 0%, #F5B800 40%, #E8820A 80%, #D4600A 100%); border-radius:50% 0 0 50% / 50% 0 0 50%; z-index:1; overflow:hidden}
 /* Ring accent top-right of blob */
 .hero__blob-ring{position:absolute; right:-6%; top:-8%; width:55%; padding-bottom:55%; border-radius:50%; border:3px solid rgba(0,0,0,.13)}
 .hero__blob-ring::after{content:""; position:absolute; inset:14%; border-radius:50%; border:1.5px solid rgba(0,0,0,.08)}
@@ -37,7 +40,7 @@
 .hero__blob-dot::after{content:""; position:absolute; inset:6px; border-radius:50%; background:rgba(0,0,0,.15)}
 /* Hero content — left side */
 .hero__content{position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad); width:100%}
-.hero__inner{max-width:clamp(320px,48%,600px)}
+.hero__inner{max-width:clamp(300px,40%,500px)}
 .hero__badge{display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); backdrop-filter:blur(8px); border-radius:999px; padding:8px 16px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:clamp(20px,2.5vw,32px)}
 .hero__badge .dot{width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0}
 .hero__loc{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:rgba(255,255,255,.6); margin-bottom:20px}
@@ -50,8 +53,8 @@
 .hero__meta strong{color:rgba(255,255,255,.85); font-weight:600}
 .hero__meta .sep{opacity:.4}
 @media (max-width:920px){
-  .hero__blob{width:50%}
-  .hero__inner{max-width:56%}
+  .hero__blob{width:46%}
+  .hero__inner{max-width:50%}
 }
 @media (max-width:720px){
   /* Celá výška viewportu */
@@ -71,8 +74,7 @@
   /* Skrýt dekorace které by narušily čistou diagonálu */
   .hero__blob-ring,.hero__blob-dots,.hero__blob-chevrons,.hero__blob-dot{display:none}
   .hero__blob-check{height:20px; background-size:20px 20px}
-  /* Lead text zkrátit — jen 2 řádky */
-  .hero__lead{display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2; overflow:hidden; margin-bottom:24px}
+  .hero__lead{margin-bottom:24px}
 }
 @media (max-width:480px){
   .hero__blob{height:46%; clip-path:polygon(0 28%, 100% 0%, 100% 100%, 0% 100%)}
@@ -107,6 +109,9 @@
 .course__icon{width:48px; height:48px; border-radius:12px; background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--ink); margin-bottom:24px}
 .course__icon svg{width:24px; height:24px}
 .course__icon .ti{font-size:24px; line-height:1; display:flex}
+.course__icons{display:flex; align-items:center; gap:8px; margin-bottom:24px}
+.course__icons .course__icon{margin-bottom:0}
+.course__icons-sep{font-size:13px; font-weight:700; opacity:.4; line-height:1}
 .course__group{font-family:var(--f-display); font-weight:700; font-size:38px; line-height:1; color:var(--ink); letter-spacing:-.01em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
 .course__group .age{font-family:var(--f-text); font-size:11px; font-weight:600; color:var(--muted); letter-spacing:.1em; text-transform:uppercase}
 .course__name{font-family:var(--f-display); font-size:20px; font-weight:700; line-height:1.1; margin:8px 0 12px; text-transform:uppercase}
@@ -307,6 +312,37 @@
 <!-- HERO -->
 <section class="hero" id="hero" data-screen-label="01 Hero">
 
+  <!-- Vlnité linky v pozadí -->
+  <svg aria-hidden="true" class="hero__waves" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+      /* Desktop: horizontální vlnky přes tmavou stranu */
+      .waves-desktop { display: block }
+      .waves-mobile  { display: none  }
+      @media (max-width: 720px) {
+        .waves-desktop { display: none  }
+        .waves-mobile  { display: block }
+      }
+    </style>
+    <!-- Desktop paths — teče zleva doprava -->
+    <g class="waves-desktop">
+      <path d="M-20 480 Q160 340 340 420 Q520 500 680 380 Q840 260 1020 340 Q1120 390 1240 310" fill="none" stroke="rgba(100,140,255,0.20)" stroke-width="1.4"/>
+      <path d="M-20 520 Q160 380 340 460 Q520 540 680 420 Q840 300 1020 380 Q1120 430 1240 350" fill="none" stroke="rgba(100,140,255,0.13)" stroke-width="1.1"/>
+      <path d="M-20 560 Q160 420 340 500 Q520 580 680 460 Q840 340 1020 420 Q1120 470 1240 390" fill="none" stroke="rgba(100,140,255,0.08)" stroke-width="0.9"/>
+      <path d="M-20 440 Q170 300 360 375 Q550 450 710 330 Q870 210 1060 295 Q1160 340 1240 275" fill="none" stroke="rgba(120,160,255,0.13)" stroke-width="1.2"/>
+      <path d="M-20 400 Q170 260 360 335 Q550 410 710 290 Q870 170 1060 255 Q1160 300 1240 235" fill="none" stroke="rgba(80,120,220,0.09)" stroke-width="1.0"/>
+      <path d="M-20 360 Q180 220 380 295 Q580 370 740 250 Q900 130 1080 215 Q1170 255 1240 200" fill="none" stroke="rgba(100,140,255,0.07)" stroke-width="0.8"/>
+      <path d="M-20 320 Q180 180 380 255 Q580 330 740 210 Q900 90 1080 175 Q1170 215 1240 165" fill="none" stroke="rgba(80,100,200,0.06)" stroke-width="0.7"/>
+    </g>
+    <!-- Mobile paths — teče shora dolů, vycentrováno kolem x=600 -->
+    <g class="waves-mobile">
+      <path d="M460 -20 Q580 120 510 280 Q440 440 560 580 Q680 720 600 900" fill="none" stroke="rgba(100,140,255,0.22)" stroke-width="1.4"/>
+      <path d="M510 -20 Q630 120 560 280 Q490 440 610 580 Q730 720 650 900" fill="none" stroke="rgba(100,140,255,0.15)" stroke-width="1.1"/>
+      <path d="M560 -20 Q680 120 610 280 Q540 440 660 580 Q780 720 700 900" fill="none" stroke="rgba(100,140,255,0.09)" stroke-width="0.9"/>
+      <path d="M420 -20 Q540 140 460 310 Q380 480 510 630 Q640 780 550 900" fill="none" stroke="rgba(120,160,255,0.14)" stroke-width="1.2"/>
+      <path d="M600 -20 Q720 140 650 310 Q580 480 700 630 Q820 780 740 900" fill="none" stroke="rgba(80,120,220,0.09)" stroke-width="1.0"/>
+    </g>
+  </svg>
+
   <!-- Organický amber blob — pravá strana -->
   <div class="hero__blob" aria-hidden="true">
     <div class="hero__blob-ring"></div>
@@ -378,7 +414,7 @@
       <article class="course course--feature" data-anim="up">
         <div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-            <div class="course__icon" style="margin-bottom:0"><i class="ti ti-steering-wheel"></i></div>
+            <div class="course__icons" style="margin-bottom:0"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
             <div class="course__badge" style="margin-bottom:0">Nejoblíbenější</div>
           </div>
           <div class="course__group">A+B <span class="age">od 24 let</span></div>
@@ -394,7 +430,7 @@
 
       <!-- Sdružený A2+B -->
       <article class="course course--dark" data-anim="up" data-delay="1">
-        <div class="course__icon"><i class="ti ti-steering-wheel"></i></div>
+        <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group">A2+B <span class="age">od 18 let</span></div>
         <div class="course__name">Sdružený výcvik</div>
         <p class="course__desc">A2 (35&nbsp;kW) + osobní automobil. CF Moto 300, Honda Rebel, Yamaha Tracer 7 + Toyota Aygo, Citroën C3.</p>
@@ -406,7 +442,7 @@
 
       <!-- Sdružený A1+B -->
       <article class="course course--dark" data-anim="up" data-delay="2">
-        <div class="course__icon"><i class="ti ti-steering-wheel"></i></div>
+        <div class="course__icons"><div class="course__icon"><i class="ti ti-moped"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group">A1+B <span class="age">od 18 let</span></div>
         <div class="course__name">Sdružený výcvik</div>
         <p class="course__desc">A1 (125&nbsp;cm³) + osobní automobil. Yamaha YBR, Benelli BN 125, skútr N-Max + Toyota Aygo, Citroën C3.</p>
@@ -454,7 +490,7 @@
 
       <!-- A1 -->
       <article class="course" data-anim="up" data-delay="3">
-        <div class="course__icon"><i class="ti ti-motorbike"></i></div>
+        <div class="course__icon"><i class="ti ti-moped"></i></div>
         <div class="course__group">A1 <span class="age">od 16 let</span></div>
         <div class="course__name">Lehká mota 125&nbsp;cm³</div>
         <p class="course__desc">Yamaha YBR, Benelli BN 125, skútr Yamaha N-Max. Výkon do 11&nbsp;kW. Od 16 let. Bez ŘP: 17 000 Kč.</p>
@@ -466,7 +502,7 @@
 
       <!-- AM -->
       <article class="course" data-anim="up" data-delay="1">
-        <div class="course__icon"><i class="ti ti-motorbike"></i></div>
+        <div class="course__icon"><i class="ti ti-scooter"></i></div>
         <div class="course__group">AM <span class="age">od 15 let</span></div>
         <div class="course__name">Mopedy &amp;&nbsp;skútry</div>
         <p class="course__desc">Yamaha YBR, Benelli BN 125, Daytona Hobby, Yamaha N-Max, Aprilia Motard. Do 45&nbsp;km/h.</p>
