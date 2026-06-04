@@ -29,7 +29,7 @@
 @media(max-width:720px){.hero-moto{width:70%}}
 /* Chevrons at left edge of blob */
 .hero__blob-chevrons{position:absolute; left:2%; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:2px; pointer-events:none}
-.hero__blob-chevrons span{font-family:var(--f-display); font-size:clamp(28px,3.5vw,50px); font-weight:900; color:rgba(0,0,0,.2); line-height:1; letter-spacing:-4px; display:block}
+.hero__blob-chevrons span{font-family:var(--f-display); font-size:clamp(28px,3.5vw,50px); font-weight:700; color:rgba(0,0,0,.2); line-height:1; letter-spacing:-4px; display:block}
 /* Dot pattern top-left corner of blob */
 .hero__blob-dots{position:absolute; top:10%; left:10%; width:72px; height:72px; background-image:radial-gradient(circle, rgba(0,0,0,.28) 1.5px, transparent 1.5px); background-size:10px 10px}
 /* Circular accent bottom-right of blob */
@@ -85,7 +85,7 @@
 .stats::before{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size:100% 60px; pointer-events:none}
 .stats__grid{position:relative; display:grid; grid-template-columns:repeat(4, 1fr); gap:32px}
 .stat{padding:8px 0}
-.stat__num{font-family:var(--f-display); font-weight:900; font-size:clamp(48px, 5.5vw, 72px); line-height:1; color:var(--red); letter-spacing:-.02em}
+.stat__num{font-family:var(--f-display); font-weight:700; font-size:clamp(48px, 5.5vw, 72px); line-height:1; color:var(--red); letter-spacing:-.02em}
 .stat__lbl{margin-top:10px; font-size:13.5px; color:rgba(255,255,255,.62); max-width:22ch}
 @media (max-width:780px){.stats__grid{grid-template-columns:repeat(2,1fr); gap:28px}}
 
@@ -107,7 +107,7 @@
 .course__icon{width:48px; height:48px; border-radius:12px; background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--ink); margin-bottom:24px}
 .course__icon svg{width:24px; height:24px}
 .course__icon .ti{font-size:24px; line-height:1; display:flex}
-.course__group{font-family:var(--f-display); font-weight:900; font-size:38px; line-height:1; color:var(--ink); letter-spacing:-.01em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.course__group{font-family:var(--f-display); font-weight:700; font-size:38px; line-height:1; color:var(--ink); letter-spacing:-.01em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
 .course__group .age{font-family:var(--f-text); font-size:11px; font-weight:600; color:var(--muted); letter-spacing:.1em; text-transform:uppercase}
 .course__name{font-family:var(--f-display); font-size:20px; font-weight:700; line-height:1.1; margin:8px 0 12px; text-transform:uppercase}
 .course__desc{color:var(--muted); font-size:14px; line-height:1.5; margin:0 0 20px}
@@ -141,7 +141,7 @@
 .course--dark:hover{border-color:rgba(245,184,0,.55)}
 .course__badge{display:table; margin-left:auto; background:var(--red); color:var(--ink); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:7px 12px; border-radius:999px; margin-bottom:20px}
 .course__visual{display:flex; align-items:flex-end; justify-content:flex-end; margin:-28px -26px -28px 0}
-.big-letter{font-family:var(--f-display); font-weight:900; font-size:280px; line-height:.78; color:rgba(255,255,255,.06); letter-spacing:-.04em; user-select:none}
+.big-letter{font-family:var(--f-display); font-weight:700; font-size:280px; line-height:.78; color:rgba(255,255,255,.06); letter-spacing:-.04em; user-select:none}
 @media (max-width:1080px){.courses__grid{grid-template-columns:1fr 1fr} .course--feature{grid-column:span 2}}
 @media (max-width:640px){.courses__grid{grid-template-columns:1fr} .course--feature{grid-column:span 1} .big-letter{font-size:200px}}
 
@@ -182,7 +182,7 @@
 .process__steps::before{content:""; position:absolute; left:0; right:0; top:48px; height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.18) 8%, rgba(255,255,255,.18) 92%, transparent)}
 .step{padding:0 18px; position:relative; border-left:1px solid rgba(255,255,255,.08)}
 .step:first-child{border-left:none; padding-left:0}
-.step__num{width:96px; height:96px; border-radius:50%; background:var(--ink-2); border:1px solid rgba(255,255,255,.12); font-family:var(--f-display); font-weight:900; font-size:34px; display:flex; align-items:center; justify-content:center; margin-bottom:24px; position:relative; z-index:1; color:rgba(255,255,255,.85)}
+.step__num{width:96px; height:96px; border-radius:50%; background:var(--ink-2); border:1px solid rgba(255,255,255,.12); font-family:var(--f-display); font-weight:700; font-size:34px; display:flex; align-items:center; justify-content:center; margin-bottom:24px; position:relative; z-index:1; color:rgba(255,255,255,.85)}
 .step.is-active .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25)}
 .step h3{font-size:22px; text-transform:uppercase; font-family:var(--f-display); font-weight:800; letter-spacing:.01em; margin-bottom:10px}
 .step p{color:rgba(255,255,255,.65); font-size:14.5px; line-height:1.55}
@@ -197,7 +197,7 @@
 .price-row.is-feature .price-row__desc{color:rgba(255,255,255,.65)}
 .price-row.is-feature .price-row__price{color:#fff}
 .price-row.is-feature .price-row__price small{color:rgba(255,255,255,.5)}
-.price-row__group{font-family:var(--f-display); font-weight:900; font-size:48px; line-height:1; color:var(--ink)}
+.price-row__group{font-family:var(--f-display); font-weight:700; font-size:48px; line-height:1; color:var(--ink)}
 .price-row__name{font-family:var(--f-display); font-size:18px; font-weight:700; text-transform:uppercase; line-height:1.1}
 .price-row__desc{color:var(--muted); font-size:13px; margin:6px 0 0}
 .price-row__price{font-family:var(--f-display); font-weight:800; font-size:24px; color:var(--ink); line-height:1; display:flex; flex-direction:column; gap:4px; text-align:right}
@@ -333,7 +333,7 @@
         Ústí nad Labem
       </p>
       <h1 data-anim="up" data-delay="1">Získej řidičák<br/><span class="accent">s jistotou.</span></h1>
-      <p class="hero__lead" data-anim="up" data-delay="2">Autoškola s 33letou tradicí v&nbsp;Ústí nad Labem. Specializace na skupiny A a&nbsp;B, vlastní motocvičiště v&nbsp;Chlumci a&nbsp;6 zkušených instruktorů.</p>
+      <p class="hero__lead" data-anim="up" data-delay="2">Autoškola s 33letou tradicí v&nbsp;Ústí nad Labem. Specializace na skupiny A a&nbsp;B, vlastní motocvičiště v&nbsp;Chlumci a&nbsp;7 zkušených instruktorů.</p>
       <div class="hero__ctas" data-anim="up" data-delay="3">
         <a href="#kurzy" class="btn btn--primary">Prohlédnout kurzy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="tel:+420606222935" class="btn btn--ghost-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> Zavolat nám</a>
@@ -357,7 +357,7 @@
       <div class="stat" data-anim="up"><div class="stat__num">33<span style="color:#fff">+</span></div><div class="stat__lbl">Let zkušeností v&nbsp;Ústí nad Labem</div></div>
       <div class="stat" data-anim="up" data-delay="1"><div class="stat__num">1000<span style="color:#fff">+</span></div><div class="stat__lbl">Spokojených absolventů</div></div>
       <div class="stat" data-anim="up" data-delay="2"><div class="stat__num">5</div><div class="stat__lbl">Skupin řidičských oprávnění (AM, A1, A2, A, B)</div></div>
-      <div class="stat" data-anim="up" data-delay="3"><div class="stat__num">6</div><div class="stat__lbl">Zkušených instruktorů v&nbsp;týmu</div></div>
+      <div class="stat" data-anim="up" data-delay="3"><div class="stat__num">7</div><div class="stat__lbl">Zkušených instruktorů v&nbsp;týmu</div></div>
     </div>
   </div>
 </section>
@@ -370,7 +370,7 @@
         <span class="eyebrow">Naše kurzy</span>
         <h2 style="margin-top:14px">Vyber si kurz,<br/>se kterým ti pomůžeme</h2>
       </div>
-      <p data-anim="up" data-delay="1">Specializujeme se na skupiny A (moto) a&nbsp;B (auto). Výcvik probíhá na vlastním motocvičišti v&nbsp;Chlumci. <strong style="color:var(--red)">Absolventi jakéhokoli A u nás: −2 000 Kč na další A · −3 000 Kč na sdružený A+B · −3 000 Kč na B.</strong></p>
+      <p data-anim="up" data-delay="1">Specializujeme se na skupiny A (moto) a&nbsp;B (auto). Výcvik probíhá na vlastním motocvičišti v&nbsp;Chlumci. <strong style="color:var(--red)">Absolventi jakéhokoli A u nás: −2&nbsp;000 Kč na další A · −3&nbsp;000 Kč na sdružený A+B · −3&nbsp;000 Kč na B.</strong></p>
     </div>
     <div class="courses__grid">
 
@@ -397,7 +397,7 @@
         <div class="course__icon"><i class="ti ti-steering-wheel"></i></div>
         <div class="course__group">A2+B <span class="age">od 18 let</span></div>
         <div class="course__name">Sdružený výcvik</div>
-        <p class="course__desc">A2 (35&nbsp;kW) + osobní automobil. Yamaha Tracer 7, Honda Rebel + Toyota Aygo, Citroën C3.</p>
+        <p class="course__desc">A2 (35&nbsp;kW) + osobní automobil. CF Moto 300, Honda Rebel, Yamaha Tracer 7 + Toyota Aygo, Citroën C3.</p>
         <div class="course__foot">
           <div class="course__price"><small>cena od</small>34 000 Kč</div>
           <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -409,7 +409,7 @@
         <div class="course__icon"><i class="ti ti-steering-wheel"></i></div>
         <div class="course__group">A1+B <span class="age">od 18 let</span></div>
         <div class="course__name">Sdružený výcvik</div>
-        <p class="course__desc">A1 (125&nbsp;cm³) + osobní automobil. Yamaha YBR, Honda CG, skútr N-Max + Toyota Aygo, Citroën C3.</p>
+        <p class="course__desc">A1 (125&nbsp;cm³) + osobní automobil. Yamaha YBR, Benelli BN 125, skútr N-Max + Toyota Aygo, Citroën C3.</p>
         <div class="course__foot">
           <div class="course__price"><small>cena od</small>33 000 Kč</div>
           <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -433,9 +433,9 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A <span class="age">24+</span></div>
         <div class="course__name">Motocykly bez omezení</div>
-        <p class="course__desc">Plné oprávnění bez výkonových limitů. Yamaha MT 07, XJ6. Rozšíření z A2 po 2&nbsp;letech.</p>
+        <p class="course__desc">Plné oprávnění bez výkonových limitů. Yamaha MT 07, XJ6, Honda CB 650 e-clutch. Rozšíření z A2 po 2&nbsp;letech.</p>
         <div class="course__foot">
-          <div class="course__price"><small>od</small>20 000 Kč</div>
+          <div class="course__price"><small>od</small>19 000 Kč</div>
           <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
@@ -445,9 +445,9 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A2 <span class="age">od 18 let</span></div>
         <div class="course__name">Motocykly do 35&nbsp;kW</div>
-        <p class="course__desc">Yamaha Tracer 7, Honda Rebel, Honda ADV 350 (automat). Rozšíření na A po 2&nbsp;letech.</p>
+        <p class="course__desc">CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat). Rozšíření na A po 2&nbsp;letech.</p>
         <div class="course__foot">
-          <div class="course__price"><small>od</small>19 000 Kč</div>
+          <div class="course__price"><small>od</small>18 000 Kč</div>
           <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
@@ -457,7 +457,7 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A1 <span class="age">od 16 let</span></div>
         <div class="course__name">Lehká mota 125&nbsp;cm³</div>
-        <p class="course__desc">Yamaha YBR, Honda CG, skútr Yamaha N-Max. Výkon do 11&nbsp;kW. Od 16 let. Bez ŘP: 17 000 Kč.</p>
+        <p class="course__desc">Yamaha YBR, Benelli BN 125, skútr Yamaha N-Max. Výkon do 11&nbsp;kW. Od 16 let. Bez ŘP: 17 000 Kč.</p>
         <div class="course__foot">
           <div class="course__price"><small>s AM od</small>16 000 Kč</div>
           <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -469,7 +469,7 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">AM <span class="age">od 15 let</span></div>
         <div class="course__name">Mopedy &amp;&nbsp;skútry</div>
-        <p class="course__desc">Yamaha YBR, Honda CG, Daytona Hobby, Yamaha N-Max, Aprilia Motard. Do 45&nbsp;km/h.</p>
+        <p class="course__desc">Yamaha YBR, Benelli BN 125, Daytona Hobby, Yamaha N-Max, Aprilia Motard. Do 45&nbsp;km/h.</p>
         <div class="course__foot">
           <div class="course__price"><small>od</small>16 000 Kč</div>
           <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -526,8 +526,8 @@
       <div class="feature" data-anim="up" data-delay="3">
         <div class="feature__num">04</div>
         <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5a6 6 0 0 0 12 0v-5M22 9v6"/></svg></div>
-        <h3>6 zkušených instruktorů</h3>
-        <p>Marek, Leona, Jirka Fenzl, Jirka Hrdlička, Jirka Borowczak a&nbsp;Pavel Holík — průměrně přes 14 let praxe. Pojištění všech žáků je samozřejmostí.</p>
+        <h3>7 zkušených instruktorů</h3>
+        <p>Marek, Leona, Jirka Fenzl, Jirka Hrdlička, Jirka Borowczak, Pavel Holík a&nbsp;Lukáš Boroviška — průměrně přes 14 let praxe. Pojištění všech žáků je samozřejmostí.</p>
       </div>
     </div>
   </div>

@@ -29,7 +29,7 @@
 /* STATS BAR */
 .team-stats{background:var(--ink-2); color:#fff; padding:36px 0}
 .team-stats__grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:32px}
-.tstat__num{font-family:var(--f-display); font-weight:900; font-size:clamp(40px,4.5vw,60px); line-height:1; color:var(--red); letter-spacing:-.02em}
+.tstat__num{font-family:var(--f-display); font-weight:700; font-size:clamp(40px,4.5vw,60px); line-height:1; color:var(--red); letter-spacing:-.02em}
 .tstat__lbl{margin-top:8px; font-size:13px; color:rgba(255,255,255,.6)}
 @media(max-width:780px){.team-stats__grid{grid-template-columns:repeat(2,1fr); gap:24px}}
 
@@ -37,9 +37,9 @@
 .founder{background:var(--ink); color:#fff; border-radius:var(--r-lg); padding:clamp(32px,4vw,52px); display:grid; grid-template-columns:auto 1fr; gap:clamp(28px,4vw,52px); align-items:start; position:relative; overflow:hidden; margin-bottom:24px}
 .founder::before{content:""; position:absolute; inset:0; background:radial-gradient(closest-side, rgba(245,184,0,.20), transparent 70%); top:-40%; right:-20%; width:70%; height:90%; filter:blur(40px); pointer-events:none}
 .founder > *{position:relative; z-index:1}
-.founder__avatar{width:100px; height:100px; border-radius:50%; background:linear-gradient(135deg, var(--red), #C98E00); color:var(--ink); font-family:var(--f-display); font-weight:900; font-size:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:3px solid rgba(255,255,255,.12)}
+.founder__avatar{width:100px; height:100px; border-radius:50%; background:linear-gradient(135deg, var(--red), #C98E00); color:var(--ink); font-family:var(--f-display); font-weight:700; font-size:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:3px solid rgba(255,255,255,.12)}
 .founder__badge{display:inline-flex; align-items:center; gap:8px; background:rgba(245,184,0,.15); border:1px solid rgba(245,184,0,.40); color:#FFD94A; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:14px}
-.founder__name{font-family:var(--f-display); font-weight:900; font-size:clamp(32px,4vw,56px); text-transform:uppercase; color:#fff; line-height:1; margin-bottom:6px}
+.founder__name{font-family:var(--f-display); font-weight:700; font-size:clamp(32px,4vw,56px); text-transform:uppercase; color:#fff; line-height:1; margin-bottom:6px}
 .founder__role{font-size:13px; font-weight:600; color:rgba(255,255,255,.5); letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px}
 .founder__bio{font-size:16px; line-height:1.7; color:rgba(255,255,255,.75); max-width:68ch}
 @media(max-width:640px){.founder{grid-template-columns:1fr} .founder__avatar{width:72px; height:72px; font-size:26px}}
@@ -49,10 +49,10 @@
 .instructor{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:32px 28px; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; position:relative}
 .instructor:hover{transform:translateY(-4px); box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(245,184,0,.45)}
 .instructor__head{display:flex; align-items:center; gap:18px; margin-bottom:20px}
-.instructor__avatar{width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--ink-2), var(--ink-3)); color:#fff; font-family:var(--f-display); font-weight:900; font-size:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0}
-.instructor__name{font-family:var(--f-display); font-weight:900; font-size:26px; text-transform:uppercase; line-height:1; color:var(--ink)}
+.instructor__avatar{width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--ink-2), var(--ink-3)); color:#fff; font-family:var(--f-display); font-weight:700; font-size:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0}
+.instructor__name{font-family:var(--f-display); font-weight:700; font-size:26px; text-transform:uppercase; line-height:1; color:var(--ink)}
 .instructor__role{font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:4px}
-.instructor__years{position:absolute; top:24px; right:24px; font-family:var(--f-display); font-weight:900; font-size:13px; letter-spacing:.06em; color:var(--red); background:var(--red-soft); padding:5px 11px; border-radius:999px}
+.instructor__years{position:absolute; top:24px; right:24px; font-family:var(--f-display); font-weight:700; font-size:13px; letter-spacing:.06em; color:var(--red); background:var(--red-soft); padding:5px 11px; border-radius:999px}
 .instructor__bio{font-size:14.5px; line-height:1.65; color:var(--muted); flex:1}
 @media(max-width:780px){.instructors{grid-template-columns:1fr}}
 
@@ -106,7 +106,7 @@
         Zpět na hlavní stránku
       </a>
       <h1 data-anim="up" data-delay="2">Naši<br/><span class="accent">instruktoři</span></h1>
-      <p class="page-hero__lead" data-anim="up" data-delay="3">Šest zkušených instruktorů se společnou vášní pro motorky a bezpečnou jízdu. Průměrně přes 14 let praxe na jednoho instruktora.</p>
+      <p class="page-hero__lead" data-anim="up" data-delay="3">Sedm zkušených instruktorů se společnou vášní pro motorky a bezpečnou jízdu. Průměrně přes 14 let praxe na jednoho instruktora.</p>
     </div>
   </div>
 </section>
@@ -116,7 +116,7 @@
   <div class="container">
     <div class="team-stats__grid">
       <div data-anim="up">
-        <div class="tstat__num">6</div>
+        <div class="tstat__num">7</div>
         <div class="tstat__lbl">instruktorů v týmu</div>
       </div>
       <div data-anim="up" data-delay="1">
@@ -158,7 +158,7 @@
         <div class="instructor__head">
           <div class="instructor__avatar">L</div>
           <div>
-            <div class="instructor__name">Leona</div>
+            <div class="instructor__name">Leona Kuchařová</div>
             <div class="instructor__role">Instruktorka · teorie</div>
           </div>
         </div>
@@ -174,7 +174,7 @@
             <div class="instructor__role">Instruktor · skupina B</div>
           </div>
         </div>
-        <p class="instructor__bio">Díky autoškole Nečas jsem si před lety udělal profesní průkaz a výcvik. Od té doby Soně a Markovi pomáhám zejména s výcvikem praxe řidičům skupiny B.</p>
+        <p class="instructor__bio">Informace bude doplněna.</p>
       </div>
 
       <div class="instructor" data-anim="up" data-delay="2">
@@ -182,7 +182,7 @@
           <div class="instructor__avatar">JH</div>
           <div>
             <div class="instructor__name">Jirka Hrdlička</div>
-            <div class="instructor__role">Instruktor · bude doplněno</div>
+            <div class="instructor__role">Instruktor · skupina B</div>
           </div>
         </div>
         <p class="instructor__bio">Informace bude doplněna.</p>
@@ -193,7 +193,7 @@
           <div class="instructor__avatar">JB</div>
           <div>
             <div class="instructor__name">Jirka Borowczak</div>
-            <div class="instructor__role">Instruktor · bude doplněno</div>
+            <div class="instructor__role">Instruktor · skupiny A, B</div>
           </div>
         </div>
         <p class="instructor__bio">Informace bude doplněna.</p>
@@ -204,7 +204,18 @@
           <div class="instructor__avatar">PH</div>
           <div>
             <div class="instructor__name">Pavel Holík</div>
-            <div class="instructor__role">Instruktor · bude doplněno</div>
+            <div class="instructor__role">Instruktor · skupiny A, B</div>
+          </div>
+        </div>
+        <p class="instructor__bio">Informace bude doplněna.</p>
+      </div>
+
+      <div class="instructor" data-anim="up" data-delay="2">
+        <div class="instructor__head">
+          <div class="instructor__avatar">LB</div>
+          <div>
+            <div class="instructor__name">Lukáš Boroviška</div>
+            <div class="instructor__role">Instruktor · skupiny A, B</div>
           </div>
         </div>
         <p class="instructor__bio">Informace bude doplněna.</p>

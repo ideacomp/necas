@@ -1,0 +1,33 @@
+# Závislosti
+node_modules/
+rezervace/node_modules/
+
+# Next.js build výstupy
+rezervace/.next/
+rezervace/out/
+
+# Supabase lokální data
+rezervace/supabase/.branches/
+rezervace/supabase/.temp/
+
+# Prostředí a tajné klíče
+.env
+.env.local
+.env.*.local
+rezervace/.env
+rezervace/.env.local
+rezervace/.env.*.local
+
+# TypeScript cache
+*.tsbuildinfo
+rezervace/next-env.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editory
+.vscode/
+.idea/
+*.swp
+*.swo
