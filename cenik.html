@@ -46,11 +46,11 @@
 .price-note svg{width:18px; height:18px; color:var(--red); flex:0 0 auto}
 
 /* Category dividers */
-.price-cat{display:flex; align-items:center; gap:16px; padding:36px 0 16px; margin-bottom:4px}
+.price-cat{display:flex; align-items:center; flex-wrap:wrap; gap:8px 16px; padding:36px 0 16px; margin-bottom:4px}
 .price-cat:first-child{padding-top:0}
 .price-cat__label{font-family:var(--f-display); font-weight:800; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); white-space:nowrap}
-.price-cat__line{flex:1; height:1px; background:var(--line)}
-.price-cat__note{font-size:12px; font-weight:500; color:var(--muted); white-space:nowrap; font-style:italic}
+.price-cat__line{flex:1; min-width:24px; height:1px; background:var(--line)}
+.price-cat__note{font-size:12px; font-weight:500; color:var(--muted); font-style:italic; word-break:break-word}
 
 /* Anchor tab nav */
 .price-nav{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:74px; z-index:40; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
@@ -78,7 +78,7 @@
 @media(max-width:680px){.sleva-panel__grid{grid-template-columns:1fr} .sleva-panel{padding:20px 20px}}
 
 /* DISCOUNT BADGE (inline in rows) */
-.sleva-tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--f-text); font-size:11.5px; font-weight:700; color:var(--ink); background:var(--red-soft); border:1px solid rgba(245,184,0,.35); padding:3px 9px; border-radius:999px; margin-top:7px; letter-spacing:.02em; white-space:nowrap}
+.sleva-tag{display:inline-flex; align-items:flex-start; gap:5px; font-family:var(--f-text); font-size:11.5px; font-weight:700; color:var(--ink); background:var(--red-soft); border:1px solid rgba(245,184,0,.35); padding:3px 9px; border-radius:12px; margin-top:7px; letter-spacing:.02em; word-break:break-word; max-width:100%}
 .price-row.is-feature .sleva-tag{color:#FFD94A; background:rgba(255,204,0,.15); border-color:rgba(255,204,0,.30)}
 
 </style>
@@ -94,6 +94,14 @@
       <a href="instruktori.html">Instruktoři</a>
       <a href="vozovy-park.html">Vozový park</a>
       <a href="cenik.html" class="active">Ceník</a>
+      <a href="cenik.html#skoleni">Školení řidičů</a>
+      <div class="nav__drop">
+        <a href="#">Dokumenty <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__drop-menu">
+          <a href="https://www.autoskolanecas.cz/_files/ugd/nova_zadost.pdf" target="_blank" download><div class="nav__drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="nav__drop-label"><span>Přihláška do kurzu</span><small>PDF ke stažení</small></div></a>
+          <a href="https://www.autoskolanecas.cz/_files/ugd/Posudekozdravotnizpusobilosti.doc" target="_blank" download><div class="nav__drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="nav__drop-label"><span>Posudek zdravotní způsobilosti</span><small>DOC ke stažení</small></div></a>
+        </div>
+      </div>
       <a href="index.html#kontakt">Kontakt</a>
     </div>
     <div class="nav__cta">
@@ -107,18 +115,20 @@
       </button>
     </div>
   </div>
-  <div class="nav__drawer" id="navDrawer">
-    <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="nav__drawer-card">
-      <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="instruktori.html">Instruktoři <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="cenik.html" style="background:var(--paper)">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:var(--ink);">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
-    </div>
   </div>
 </nav>
+<div class="nav__drawer" id="navDrawer">
+  <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="nav__drawer-card">
+    <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="instruktori.html">Instruktoři <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="cenik.html" style="background:var(--paper)">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="cenik.html#skoleni">Školení řidičů <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:var(--ink);">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+  </div>
+</div>
 
 <main>
 
@@ -196,7 +206,7 @@
         <div>
           <div class="price-row__name">Lehké motocykly do 125&nbsp;cm³</div>
           <p class="price-row__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Benelli BN 125, skútr N-Max · bez ŘP: 17 000 Kč</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A</span>
         </div>
         <div class="price-row__price"><small>s AM řidičákem</small>16 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
@@ -206,7 +216,7 @@
         <div>
           <div class="price-row__name">Motocykly do 35&nbsp;kW</div>
           <p class="price-row__desc">Od 18 let · CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat)</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>18 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
@@ -216,7 +226,7 @@
         <div>
           <div class="price-row__name">Motocykly bez omezení</div>
           <p class="price-row__desc">Od 24 let (nebo A2 → A po 2 letech) · Yamaha MT 07, Yamaha XJ6, Honda CB 650 e-clutch</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>19 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
@@ -236,7 +246,7 @@
         <div>
           <div class="price-row__name">Osobní automobily</div>
           <p class="price-row__desc">Od 18 let · Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t</p>
-          <span class="sleva-tag">−3 000 Kč pro naše absolventy sk. A → 18 000 Kč</span>
+          <span class="sleva-tag">−3 000 Kč pro absolventy jakékoli sk. A → 18 000 Kč</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>21 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
@@ -296,7 +306,7 @@
         <div>
           <div class="price-row__name">Rozšíření z A1 na A2</div>
           <p class="price-row__desc">Zkrácený výcvik pro držitele A1 · podmínka: 2 roky s&nbsp;A1</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 4 000 Kč</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 4 000 Kč</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>6 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
@@ -306,7 +316,7 @@
         <div>
           <div class="price-row__name">Rozšíření z A2 na plné A</div>
           <p class="price-row__desc">Zkrácený výcvik pro držitele A2 · podmínka: 2 roky s&nbsp;A2</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 4 000 Kč</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 4 000 Kč</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>6 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
@@ -316,7 +326,7 @@
         <div>
           <div class="price-row__name">Přímé rozšíření z A1 na plné A</div>
           <p class="price-row__desc">Pro držitele A1 — přeskočení A2 · rozšířený výcvik</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 10 000 Kč</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 10 000 Kč</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>12 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
@@ -326,7 +336,7 @@
         <div>
           <div class="price-row__name">Rozšíření A2 → plné A (rozšířený výcvik)</div>
           <p class="price-row__desc">Komplexní výcvik pro přechod z&nbsp;A2 na neomezené A</p>
-          <span class="sleva-tag">−2 000 Kč pro naše absolventy sk. A → 10 000 Kč</span>
+          <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 10 000 Kč</span>
         </div>
         <div class="price-row__price"><small>cena kurzu</small>12 000 Kč</div>
         <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
