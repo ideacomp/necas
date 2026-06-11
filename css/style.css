@@ -153,6 +153,9 @@ p { margin: 0 0 1em }
 .nav.is-transparent .nav__links a:hover,
 .nav.is-transparent .nav__links a.active { background: rgba(255,255,255,.12); color: #fff }
 .nav.is-transparent .nav__drop > a svg { opacity: .6 }
+/* Dropdown má vlastní bílé pozadí — zachovat tmavý text */
+.nav.is-transparent .nav__drop-menu a { color: var(--ink) !important; background: none !important }
+.nav.is-transparent .nav__drop-menu a:hover { background: var(--paper) !important; color: var(--ink) !important }
 .nav.is-transparent .nav__phone { color: rgba(255,255,255,.85) }
 .nav.is-transparent .nav__phone:hover { background: rgba(255,255,255,.10) }
 .nav.is-transparent .nav__burger svg { stroke: #fff }

@@ -60,6 +60,9 @@
 .course__name-row{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 10px}
 .course__name{font-family:var(--f-display); font-size:18px; font-weight:700; line-height:1.1; text-transform:uppercase; margin:8px 0 10px}
 .course__desc{color:var(--muted); font-size:13.5px; line-height:1.5; margin:0 0 16px; flex:1}
+.course > .sleva-tag,
+.course--feature > div > .sleva-tag{margin-top:auto; display:block; align-self:flex-start; margin-bottom:12px}
+.course--feature > div:first-child{display:flex; flex-direction:column}
 .course__foot{display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:16px; border-top:1px solid var(--line); margin-top:auto}
 .course__price{font-family:var(--f-display); font-weight:800; font-size:22px; color:var(--ink); line-height:1; display:flex; flex-direction:column; gap:4px}
 .course__price small{font-family:var(--f-text); font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
@@ -258,7 +261,8 @@
         <div class="course__icon"><i class="ti ti-moped"></i></div>
         <div class="course__group">A1</div>
         <div class="course__name">Lehké motocykly do 125&nbsp;cm³</div>
-        <p class="course__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Benelli BN 125, skútr N-Max · držitelé ŘP: −1&nbsp;000&nbsp;Kč<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A</span></p>
+        <p class="course__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Benelli BN 125, skútr N-Max · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A</span>
         <div class="course__foot">
           <div class="course__price"><small>s AM řidičákem</small>17 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -268,7 +272,8 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A2</div>
         <div class="course__name">Motocykly do 35&nbsp;kW</div>
-        <p class="course__desc">Od 18 let · CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat) · držitelé ŘP: −1&nbsp;000&nbsp;Kč<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A</span></p>
+        <p class="course__desc">Od 18 let · CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat) · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>19 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -278,7 +283,8 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A</div>
         <div class="course__name">Motocykly bez omezení</div>
-        <p class="course__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6, Honda CB 650 e-clutch · držitelé ŘP: −1&nbsp;000&nbsp;Kč<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A</span></p>
+        <p class="course__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6, Honda CB 650 e-clutch · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>20 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -299,7 +305,8 @@
           <div class="course__icons"><div class="course__icon"><i class="ti ti-car"></i></div></div>
           <div class="course__group">B <span class="age">od 18 let</span></div>
           <div class="course__name">Osobní automobily</div>
-          <p class="course__desc">Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy jakékoli sk. A → 18 000 Kč</span></p>
+          <p class="course__desc">Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t</p>
+          <span class="sleva-tag">−3 000 Kč pro absolventy jakékoli sk. A → 18 000 Kč</span>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small>21 000 Kč</div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -321,7 +328,8 @@
         <div class="course__icons"><div class="course__icon"><i class="ti ti-moped"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group">A1+B <span class="age">od 18 let</span></div>
         <div class="course__name">A1 + osobní automobil</div>
-        <p class="course__desc">A1 (125&nbsp;cm³) + Toyota Aygo, Citroën C3 · automat Corolla k&nbsp;dispozici<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy jakéhokoli A → 30 000 Kč</span></p>
+        <p class="course__desc">A1 (125&nbsp;cm³) + Toyota Aygo, Citroën C3 · automat Corolla k&nbsp;dispozici</p>
+        <span class="sleva-tag">−3 000 Kč pro absolventy jakéhokoli A → 30 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>33 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -331,7 +339,8 @@
         <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group">A2+B <span class="age">od 18 let</span></div>
         <div class="course__name">A2 + osobní automobil</div>
-        <p class="course__desc">A2 (35&nbsp;kW) + Toyota Aygo, Citroën C3 · automat Corolla k&nbsp;dispozici<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy jakéhokoli A → 31 000 Kč</span></p>
+        <p class="course__desc">A2 (35&nbsp;kW) + Toyota Aygo, Citroën C3 · automat Corolla k&nbsp;dispozici</p>
+        <span class="sleva-tag">−3 000 Kč pro absolventy jakéhokoli A → 31 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>34 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -343,7 +352,8 @@
           <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
           <div class="course__group">A+B <span class="age">od 24 let</span></div>
           <div class="course__name">Plné A + osobní automobil</div>
-          <p class="course__desc">Yamaha MT 07 nebo XJ6 · Toyota Aygo, Citroën C3 · nejlepší poměr cena/oprávnění<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy jakéhokoli A → 32 000 Kč</span></p>
+          <p class="course__desc">Yamaha MT 07 nebo XJ6 · Toyota Aygo, Citroën C3 · nejlepší poměr cena/oprávnění</p>
+          <span class="sleva-tag">−3 000 Kč pro absolventy jakéhokoli A → 32 000 Kč</span>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small>35 000 Kč</div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -365,7 +375,8 @@
         <div class="course__icon"><i class="ti ti-moped"></i></div>
         <div class="course__group" style="font-size:26px">A1 → A2</div>
         <div class="course__name">Rozšíření z A1 na A2</div>
-        <p class="course__desc">Zkrácený výcvik pro držitele A1 · podmínka: 2 roky s&nbsp;A1<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A → 4 000 Kč</span></p>
+        <p class="course__desc">Zkrácený výcvik pro držitele A1 · podmínka: 2 roky s&nbsp;A1</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 4 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>6 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
@@ -375,7 +386,8 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group" style="font-size:26px">A2 → A</div>
         <div class="course__name">Rozšíření z A2 na plné A</div>
-        <p class="course__desc">Zkrácený výcvik pro držitele A2 · podmínka: 2 roky s&nbsp;A2<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A → 4 000 Kč</span></p>
+        <p class="course__desc">Zkrácený výcvik pro držitele A2 · podmínka: 2 roky s&nbsp;A2</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 4 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>6 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
@@ -385,7 +397,8 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group" style="font-size:26px">A1 → A</div>
         <div class="course__name">Přímé rozšíření z A1 na plné A</div>
-        <p class="course__desc">Pro držitele A1 — přeskočení A2 · rozšířený výcvik<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A → 10 000 Kč</span></p>
+        <p class="course__desc">Pro držitele A1 — přeskočení A2 · rozšířený výcvik</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 10 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>12 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
@@ -395,7 +408,8 @@
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group" style="font-size:26px">A2 → A+</div>
         <div class="course__name">Rozšíření A2 → A (rozšířený výcvik)</div>
-        <p class="course__desc">Komplexní výcvik pro přechod z&nbsp;A2 na neomezené A<br><span class="sleva-tag" style="margin-top:8px">−2 000 Kč pro absolventy jakékoli sk. A → 10 000 Kč</span></p>
+        <p class="course__desc">Komplexní výcvik pro přechod z&nbsp;A2 na neomezené A</p>
+        <span class="sleva-tag">−2 000 Kč pro absolventy jakékoli sk. A → 10 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena kurzu</small>12 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
@@ -413,7 +427,8 @@
         <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group" style="font-size:26px">A1/A + B</div>
         <div class="course__name">Rozšíření A1→A + skupina B</div>
-        <p class="course__desc">Plné A + osobní automobil<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy sk. A1 → 27 000 Kč</span></p>
+        <p class="course__desc">Plné A + osobní automobil</p>
+        <span class="sleva-tag">−3 000 Kč pro absolventy sk. A1 → 27 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena balíčku</small>30 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
@@ -423,7 +438,8 @@
         <div class="course__icons"><div class="course__icon"><i class="ti ti-moped"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group" style="font-size:26px">A1/A2 + B</div>
         <div class="course__name">Rozšíření A1→A2 + skupina B</div>
-        <p class="course__desc">A2 + osobní automobil<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy sk. A1 → 25 000 Kč</span></p>
+        <p class="course__desc">A2 + osobní automobil</p>
+        <span class="sleva-tag">−3 000 Kč pro absolventy sk. A1 → 25 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena balíčku</small>28 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
@@ -433,7 +449,8 @@
         <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
         <div class="course__group" style="font-size:26px">A2/A + B</div>
         <div class="course__name">Rozšíření A2→A + skupina B</div>
-        <p class="course__desc">Plné A + osobní automobil<br><span class="sleva-tag" style="margin-top:8px">−3 000 Kč pro absolventy sk. A2 → 25 000 Kč</span></p>
+        <p class="course__desc">Plné A + osobní automobil</p>
+        <span class="sleva-tag">−3 000 Kč pro absolventy sk. A2 → 25 000 Kč</span>
         <div class="course__foot">
           <div class="course__price"><small>cena balíčku</small>28 000 Kč</div>
           <a href="index.html#kontakt" class="course__more">Zájem</a>
