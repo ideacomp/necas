@@ -133,10 +133,30 @@
 .sleva-panel__desc strong{color:#fff; font-weight:600}
 @media(max-width:680px){.sleva-panel__grid{grid-template-columns:1fr} .sleva-panel{padding:20px 20px}}
 
-/* ORIGINAL PRICE (struck through) */
-.course__price-orig{font-size:16px; font-weight:700; color:var(--ink); text-decoration:line-through; text-decoration-color:#FFD94A; text-decoration-thickness:1.5px; line-height:1}
-.course--dark .course__price-orig,
-.course--feature .course__price-orig{color:rgba(255,255,255,.75)}
+.course__name-row .course__name{margin:0}
+
+/* ABSOLVENT TOGGLE */
+.absolvent-bar{display:inline-flex; align-items:center; gap:16px; background:#fff; border:1.5px solid var(--line); border-radius:var(--r-md); padding:16px 22px; margin-bottom:32px; cursor:pointer; transition:border-color .15s, box-shadow .15s; user-select:none}
+.absolvent-bar:hover{border-color:rgba(245,184,0,.55); box-shadow:0 4px 16px -8px rgba(15,17,23,.10)}
+.absolvent-bar input{position:absolute; opacity:0; width:0; height:0; pointer-events:none}
+.absolvent-switch{width:48px; height:26px; background:var(--line); border-radius:999px; position:relative; flex-shrink:0; transition:background .2s}
+.absolvent-switch::after{content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; background:#fff; border-radius:50%; box-shadow:0 1px 4px rgba(0,0,0,.22); transition:transform .2s}
+.absolvent-bar:has(input:checked) .absolvent-switch{background:var(--red)}
+.absolvent-bar:has(input:checked) .absolvent-switch::after{transform:translateX(22px)}
+.absolvent-text{display:flex; flex-direction:column; gap:2px}
+.absolvent-text strong{font-size:15px; font-weight:700; color:var(--ink)}
+.absolvent-text span{font-size:12px; color:var(--muted)}
+
+/* PRICE TOGGLE */
+.price-swap{display:grid}
+.price-std,.price-was{grid-row:1;grid-column:1}
+.price-was{visibility:hidden; text-decoration:line-through; text-decoration-color:#FFD94A; text-decoration-thickness:1.5px; opacity:.6}
+.price-dis{visibility:hidden; display:block}
+.price-spacer{display:block; height:22px; flex-shrink:0}
+.price-for{display:none}
+.is-absolvent .price-std{visibility:hidden}
+.is-absolvent .price-was{visibility:visible}
+.is-absolvent .price-dis{visibility:visible}
 
 </style>
 </head>
@@ -241,6 +261,16 @@
       </div>
     </div>
 
+    <!-- ABSOLVENT TOGGLE -->
+    <label class="absolvent-bar" data-anim="up">
+      <input type="checkbox" id="absolventCheck">
+      <span class="absolvent-switch"></span>
+      <span class="absolvent-text">
+        <strong>Absolvoval jsem u vás sk. A</strong>
+        <span>Zobrazí zvýhodněné ceny pro naše žáky</span>
+      </span>
+    </label>
+
     <!-- Panel: Skupiny A -->
     <div class="price-panel is-active" id="pnl-skupiny-a">
       <div class="price-cat" data-anim="fade">
@@ -253,7 +283,7 @@
           <div class="course__name">Mopedy, skútry do 45&nbsp;km/h</div>
           <p class="course__desc">Od 15 let · Yamaha YBR, Benelli BN 125, Daytona Hobby, Yamaha N-Max, Aprilia Motard</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small>16 000 Kč</div>
+            <div class="course__price"><small>cena kurzu</small>16 000 Kč<span class="price-spacer"></span></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>
@@ -263,7 +293,7 @@
           <div class="course__name">Lehké motocykly do 125&nbsp;cm³</div>
           <p class="course__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Benelli BN 125, skútr N-Max · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">17 000 Kč</span>15 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">17 000 Kč</span><span class="price-was">17 000 Kč</span></span><span class="price-dis">15 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>
@@ -273,7 +303,7 @@
           <div class="course__name">Motocykly do 35&nbsp;kW</div>
           <p class="course__desc">Od 18 let · CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat) · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">19 000 Kč</span>17 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">19 000 Kč</span><span class="price-was">19 000 Kč</span></span><span class="price-dis">17 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>
@@ -283,7 +313,7 @@
           <div class="course__name">Motocykly bez omezení</div>
           <p class="course__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6, Honda CB 650 e-clutch · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">20 000 Kč</span>18 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">20 000 Kč</span><span class="price-was">20 000 Kč</span></span><span class="price-dis">18 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>
@@ -303,7 +333,7 @@
             <div class="course__name">Osobní automobily</div>
             <p class="course__desc">Toyota Aygo, Citroën C3 · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t</p>
             <div class="course__foot">
-              <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">21 000 Kč</span>18 000 Kč<small>pro naše absolventy skupiny A</small></div>
+              <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">21 000 Kč</span><span class="price-was">21 000 Kč</span></span><span class="price-dis">18 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
               <a href="index.html#kontakt" class="course__more">Zapsat se</a>
             </div>
           </div>
@@ -324,7 +354,7 @@
           <div class="course__name">A1 + osobní automobil</div>
           <p class="course__desc">A1 (125&nbsp;cm³) + Toyota Aygo, Citroën C3 · automat Corolla k&nbsp;dispozici</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">33 000 Kč</span>30 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">33 000 Kč</span><span class="price-was">33 000 Kč</span></span><span class="price-dis">30 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>
@@ -334,7 +364,7 @@
           <div class="course__name">A2 + osobní automobil</div>
           <p class="course__desc">A2 (35&nbsp;kW) + Toyota Aygo, Citroën C3 · automat Corolla k&nbsp;dispozici</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">34 000 Kč</span>31 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">34 000 Kč</span><span class="price-was">34 000 Kč</span></span><span class="price-dis">31 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>
@@ -346,7 +376,7 @@
             <div class="course__name">Plné A + osobní automobil</div>
             <p class="course__desc">Yamaha MT 07 nebo XJ6 · Toyota Aygo, Citroën C3 · nejlepší poměr cena/oprávnění</p>
             <div class="course__foot">
-              <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">35 000 Kč</span>32 000 Kč<small>pro naše absolventy skupiny A</small></div>
+              <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">35 000 Kč</span><span class="price-was">35 000 Kč</span></span><span class="price-dis">32 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
               <a href="index.html#kontakt" class="course__more">Zapsat se</a>
             </div>
           </div>
@@ -367,7 +397,7 @@
           <div class="course__name">Rozšíření z A1 na A2</div>
           <p class="course__desc">Zkrácený výcvik pro držitele A1 · podmínka: 2 roky s&nbsp;A1</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">6 000 Kč</span>4 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">6 000 Kč</span><span class="price-was">6 000 Kč</span></span><span class="price-dis">4 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -377,7 +407,7 @@
           <div class="course__name">Rozšíření z A2 na plné A</div>
           <p class="course__desc">Zkrácený výcvik pro držitele A2 · podmínka: 2 roky s&nbsp;A2</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">6 000 Kč</span>4 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">6 000 Kč</span><span class="price-was">6 000 Kč</span></span><span class="price-dis">4 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -387,7 +417,7 @@
           <div class="course__name">Přímé rozšíření z A1 na plné A</div>
           <p class="course__desc">Pro držitele A1 — přeskočení A2 · rozšířený výcvik</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">12 000 Kč</span>10 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">12 000 Kč</span><span class="price-was">12 000 Kč</span></span><span class="price-dis">10 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -397,7 +427,7 @@
           <div class="course__name">Rozšíření A2 → A (rozšířený výcvik)</div>
           <p class="course__desc">Komplexní výcvik pro přechod z&nbsp;A2 na neomezené A</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="course__price-orig">12 000 Kč</span>10 000 Kč<small>pro naše absolventy skupiny A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">12 000 Kč</span><span class="price-was">12 000 Kč</span></span><span class="price-dis">10 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -412,7 +442,7 @@
           <div class="course__name">Rozšíření A1→A + skupina B</div>
           <p class="course__desc">Plné A + osobní automobil</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena balíčku</small><span class="course__price-orig">30 000 Kč</span>27 000 Kč<small>pro naše absolventy skupiny A1</small></div>
+            <div class="course__price"><small>cena balíčku</small><span class="price-swap"><span class="price-std">30 000 Kč</span><span class="price-was">30 000 Kč</span></span><span class="price-dis">27 000 Kč</span><small class="price-for">pro naše žáky sk. A1</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -422,7 +452,7 @@
           <div class="course__name">Rozšíření A1→A2 + skupina B</div>
           <p class="course__desc">A2 + osobní automobil</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena balíčku</small><span class="course__price-orig">28 000 Kč</span>25 000 Kč<small>pro naše absolventy skupiny A1</small></div>
+            <div class="course__price"><small>cena balíčku</small><span class="price-swap"><span class="price-std">28 000 Kč</span><span class="price-was">28 000 Kč</span></span><span class="price-dis">25 000 Kč</span><small class="price-for">pro naše žáky sk. A1</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -432,7 +462,7 @@
           <div class="course__name">Rozšíření A2→A + skupina B</div>
           <p class="course__desc">Plné A + osobní automobil</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena balíčku</small><span class="course__price-orig">28 000 Kč</span>25 000 Kč<small>pro naše absolventy skupiny A2</small></div>
+            <div class="course__price"><small>cena balíčku</small><span class="price-swap"><span class="price-std">28 000 Kč</span><span class="price-was">28 000 Kč</span></span><span class="price-dis">25 000 Kč</span><small class="price-for">pro naše žáky sk. A2</small></div>
             <a href="index.html#kontakt" class="course__more">Zájem</a>
           </div>
         </article>
@@ -649,6 +679,11 @@
 </footer>
 
 <script src="js/app.js" defer></script>
+<script>
+document.getElementById('absolventCheck').addEventListener('change', function() {
+  document.body.classList.toggle('is-absolvent', this.checked);
+});
+</script>
 <script>
 (function(){
   const TAB_IDS = ['skupiny-a','skupina-b','sdruzeny','rozsirujici','zkousky','kondicni','skoleni'];
