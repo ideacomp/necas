@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Školení řidičů — Autoškola Nečas Ústí nad Labem</title>
+<meta name="description" content="Školení řidičů referentů a pravidelné roční školení skupin C, D, E. Autoškola Nečas Ústí nad Labem, tel: 606 222 935." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+/* PAGE HERO */
+.page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden}
+.page-hero::before{content:""; position:absolute; inset:0; background:radial-gradient(900px 500px at 80% 0%, rgba(245,184,0,.18), transparent 60%); pointer-events:none}
+.page-hero::after{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:60px 60px; -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); pointer-events:none}
+.page-hero__inner{position:relative; z-index:1}
+.page-hero .eyebrow{color:#FFD94A; border-color:rgba(255,204,0,.30); background:rgba(255,204,0,.10)}
+.page-hero h1{color:#fff; margin:20px 0 22px; max-width:16ch}
+.page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:56ch; line-height:1.55; margin:0 0 36px}
+.back-link{display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.45); font-size:13px; font-weight:500; text-decoration:none; margin-bottom:36px; transition:color .15s ease}
+.back-link svg{width:14px; height:14px}
+.back-link:hover{color:rgba(255,255,255,.9)}
+
+/* SECTION */
+.section{padding:clamp(72px, 10vw, 120px) 0}
+
+/* Category dividers */
+.price-cat{display:flex; align-items:center; flex-wrap:wrap; gap:8px 16px; padding:36px 0 16px; margin-bottom:4px}
+.price-cat:first-child{padding-top:0}
+.price-cat__label{font-family:var(--f-display); font-weight:800; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); white-space:nowrap}
+.price-cat__line{flex:1; min-width:24px; height:1px; background:var(--line)}
+.price-cat__note{font-size:12px; font-weight:500; color:var(--muted); font-style:italic; word-break:break-word}
+
+/* COURSE CARDS */
+.courses__grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin-bottom:8px}
+.course{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 26px; display:flex; flex-direction:column; justify-content:space-between; min-height:300px; transition:box-shadow .2s ease, border-color .2s ease; position:relative}
+.course:hover{box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(245,184,0,.50)}
+.course__icon{width:48px; height:48px; border-radius:12px; background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--ink); margin-bottom:20px; flex-shrink:0}
+.course__icon .ti{font-size:24px; line-height:1; display:flex}
+.course__group{font-family:var(--f-display); font-weight:700; font-size:38px; line-height:1; color:var(--ink); letter-spacing:-.01em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.course__name{font-family:var(--f-display); font-size:18px; font-weight:700; line-height:1.1; text-transform:uppercase; margin:8px 0 10px}
+.course__desc{color:var(--muted); font-size:13.5px; line-height:1.5; margin:0 0 16px; flex:1}
+.course__foot{display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:16px; border-top:1px solid var(--line); margin-top:auto}
+.course__price{font-family:var(--f-display); font-weight:800; font-size:22px; color:var(--ink); line-height:1; display:flex; flex-direction:column; gap:4px}
+.course__price small{font-family:var(--f-text); font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+.course__more{font-family:var(--f-text); font-size:12px; font-weight:600; color:var(--ink); background:var(--paper-2); border:1px solid var(--line); border-radius:999px; padding:7px 16px; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .15s, color .15s, border-color .15s}
+.course__more:hover{background:var(--ink); color:#fff; border-color:var(--ink)}
+@media (max-width:1080px){.courses__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.courses__grid{grid-template-columns:1fr} .course{min-height:0}}
+
+.price-note{display:inline-flex; align-items:center; gap:10px; font-size:14px; color:var(--muted); background:#fff; border:1px solid var(--line); padding:14px 18px; border-radius:var(--r-md); margin-top:24px}
+.price-note svg{width:18px; height:18px; color:var(--red); flex:0 0 auto}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="siteNav" aria-label="Hlavní navigace">
+  <div class="nav__inner">
+    <a href="index.html" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" height="34"></a>
+    <div class="nav__links">
+      <a href="index.html#kurzy">Kurzy</a>
+      <a href="instruktori.html">Instruktoři</a>
+      <a href="vozovy-park.html">Vozový park</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="skoleni-ridicu.html" class="active">Školení řidičů</a>
+      <div class="nav__drop">
+        <a href="#">Dokumenty <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__drop-menu">
+          <a href="https://www.autoskolanecas.cz/_files/ugd/nova_zadost.pdf" target="_blank" download><div class="nav__drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="nav__drop-label"><span>Přihláška do kurzu</span><small>PDF ke stažení</small></div></a>
+          <a href="https://www.autoskolanecas.cz/_files/ugd/Posudekozdravotnizpusobilosti.doc" target="_blank" download><div class="nav__drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="nav__drop-label"><span>Posudek zdravotní způsobilosti</span><small>DOC ke stažení</small></div></a>
+        </div>
+      </div>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <div class="nav__cta">
+      <a href="tel:+420606222935" class="nav__phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        606 222 935
+      </a>
+      <a href="index.html#kontakt" class="btn btn--primary btn--sm">Přihlásit se</a>
+      <button class="nav__burger" id="burgerBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav__drawer" id="navDrawer">
+  <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="nav__drawer-card">
+    <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="instruktori.html">Instruktoři <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="cenik.html">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="skoleni-ridicu.html" style="background:var(--paper)">Školení řidičů <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:var(--ink);">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+  </div>
+</div>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <a href="cenik.html" class="back-link" data-anim="fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Zpět na ceník
+      </a>
+      <h1 data-anim="up" data-delay="2">Školení<br/><span class="accent">řidičů</span></h1>
+      <p class="page-hero__lead" data-anim="up" data-delay="3">Školení řidičů referentů i pravidelné roční školení skupin C, D, E. Zajistíme plnění zákonných povinností pro vaši firmu i zaměstnance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE TABLE -->
+<section class="section" style="background:var(--paper); padding-top:48px">
+  <div class="container">
+
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Školení řidičů</span>
+    </div>
+    <div class="courses__grid">
+      <article class="course" data-anim="up">
+        <div class="course__icon"><i class="ti ti-users"></i></div>
+        <div class="course__group" style="font-size:28px">Referenti</div>
+        <div class="course__name">Školení řidičů referentů</div>
+        <p class="course__desc">Školení pro zaměstnance využívající vozidlo k pracovním účelům · všechny skupiny</p>
+        <div class="course__foot">
+          <div class="course__price"><small>cena / osobu</small>400 Kč</div>
+          <a href="index.html?kurz=skoleni#kontakt" class="course__more">Objednat</a>
+        </div>
+      </article>
+      <article class="course" data-anim="up" data-delay="1">
+        <div class="course__icon"><i class="ti ti-truck"></i></div>
+        <div class="course__group" style="font-size:28px">C+D+E</div>
+        <div class="course__name">Pravidelné roční školení C+D+E</div>
+        <p class="course__desc">Nabízíme od podzimu do jara — mimo letní motorkářskou sezonu</p>
+        <div class="course__foot">
+          <div class="course__price"><small>cena / osobu</small>1 000 Kč</div>
+          <a href="index.html?kurz=skoleni#kontakt" class="course__more">Objednat</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="price-note" data-anim="up" style="margin-top:40px; align-items:flex-start; padding:18px 22px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span style="line-height:1.8">
+        — Ceny jsou platné od 1.&nbsp;6.&nbsp;2026.<br>
+        — Školení je možné uspořádat přímo u vás ve firmě. Kontaktujte nás pro nabídku na míru.
+      </span>
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" height="28"></a>
+        <p>Rodinná autoškola s 33letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
+      </div>
+      <div><h5>Stránky</h5><ul><li><a href="index.html#kurzy">Kurzy</a></li><li><a href="instruktori.html">Instruktoři</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="cenik.html">Ceník</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+      <div><h5>Kurzy</h5><ul><li><a href="cenik.html">Skupiny A — motorky</a></li><li><a href="cenik.html">Sdružený A+B</a></li><li><a href="cenik.html">AM / A1 / A2</a></li><li><a href="cenik.html">Kondiční &amp; doplňkový</a></li></ul></div>
+      <div><h5>Kontakt</h5><ul><li>Žukovova 546/15</li><li>400 03 Ústí nad Labem-Střekov</li><li><a href="tel:+420606222935">+420 606 222 935</a></li><li><a href="mailto:autoskola.necas@seznam.cz">autoskola.necas@seznam.cz</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Autoškola Marek Nečas, Ústí nad Labem · IČ 650 910 86</span>
+      <span>Po–Pá 8:00–17:00</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>

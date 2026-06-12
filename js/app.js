@@ -8,11 +8,13 @@
   /* ── Nav: scroll shadow + průhlednost nad hero ── */
   const navEl = document.getElementById('siteNav');
   const heroEl = document.getElementById('hero');
+  const pageHeroEl = document.querySelector('.page-hero');
   if (navEl) {
+    if (!heroEl && pageHeroEl) navEl.classList.add('is-solid');
     const updateNav = () => {
       const atTop = !!heroEl && window.scrollY < 10;
       navEl.classList.toggle('is-transparent', atTop);
-      navEl.classList.toggle('is-scrolled', !atTop && window.scrollY > 8);
+      navEl.classList.toggle('is-scrolled', !!heroEl && !atTop && window.scrollY > 8);
     };
     requestAnimationFrame(updateNav);
     window.addEventListener('scroll', updateNav, { passive: true });
