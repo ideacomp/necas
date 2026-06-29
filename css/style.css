@@ -31,7 +31,7 @@
 html, body { margin: 0; padding: 0 }
 html { background: #080B12 }
 body { overflow-x: clip }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100% }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--nav-h) }
 body {
   font-family: var(--f-text);
   color: var(--ink);

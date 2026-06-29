@@ -26,13 +26,44 @@
   const drawerClose = document.getElementById('drawerClose');
 
   if (burger && drawer) {
-    const openDrawer  = () => { drawer.classList.add('is-open');    document.body.classList.add('drawer-open'); };
-    const closeDrawer = () => { drawer.classList.remove('is-open'); document.body.classList.remove('drawer-open'); };
+    let drawerScrollY = 0;
+
+    const openDrawer = () => {
+      drawerScrollY = window.scrollY;
+      document.body.style.top = `-${drawerScrollY}px`;
+      drawer.classList.add('is-open');
+      document.body.classList.add('drawer-open');
+    };
+
+    const closeDrawer = () => {
+      drawer.classList.remove('is-open');
+      document.body.classList.remove('drawer-open');
+      document.body.style.top = '';
+      window.scrollTo({ top: drawerScrollY, behavior: 'instant' });
+    };
 
     burger.addEventListener('click', openDrawer);
     if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
     drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer(); });
-    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          closeDrawer();
+          const target = document.getElementById(href.slice(1));
+          if (target) {
+            const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 63;
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+            }));
+          }
+        } else {
+          closeDrawer();
+        }
+      });
+    });
   }
 
   /* ── Scroll animations (data-anim) ── */
