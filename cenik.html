@@ -763,7 +763,7 @@ document.getElementById('absolventCheck').addEventListener('change', function() 
     'A1+B':'a1b','A2+B':'a2b','A+B':'ab'
   };
   document.querySelectorAll('.course').forEach(card => {
-    const btn = card.querySelector('a.course__more[href*="kontakt"]');
+    const btn = card.querySelector('a.course__more[href*="contactForm"]');
     if (!btn) return;
     const grpEl = card.querySelector('.course__group');
     const grpTxt = grpEl ? (grpEl.firstChild.textContent || '').replace(/\s+/g, '') : '';
