@@ -938,6 +938,12 @@
 
 
 <!-- Scripts -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init({ publicKey: "HNCCRyj8jD7fUV6sC", blockHeadless: true });
+  })();
+</script>
 <script src="js/app.js" defer></script>
 <script>
 /* Page-specific JS — contact form, course card links, URL param */
@@ -955,13 +961,29 @@
       });
       if (!valid) return;
       const data = Object.fromEntries(new FormData(form).entries());
-      const success = document.createElement('div');
-      success.className = 'form-success';
-      success.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        <h4>Děkujeme, ${data.name ? data.name.split(' ')[0] : ''}!</h4>
-        <p>Tvoji poptávku máme. Ozveme se ti během 24 hodin na ${data.phone || data.email}.</p>`;
-      form.replaceWith(success);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnOriginal = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Odesílání…';
+      emailjs.send('service_o2tt8pj', 'template_2bqt3u5', {
+        from_name: data.name,
+        from_email: data.email,
+        from_phone: data.phone,
+        from_course: data.course,
+        message: data.message
+      }).then(function () {
+        const success = document.createElement('div');
+        success.className = 'form-success';
+        success.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <h4>Děkujeme, ${data.name ? data.name.split(' ')[0] : ''}!</h4>
+          <p>Tvoji poptávku máme. Ozveme se ti během 24 hodin na ${data.phone || data.email}.</p>`;
+        form.replaceWith(success);
+      }, function (error) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = btnOriginal;
+        alert('Při odesílání došlo k chybě: ' + (error.text || JSON.stringify(error)));
+      });
     });
     form.querySelectorAll('input, select, textarea').forEach(f => {
       f.addEventListener('input', () => f.closest('.field')?.classList.remove('is-error'));
