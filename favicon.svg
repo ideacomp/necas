@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="3500 5420 5050 2000">
+  <style>
+    .s { fill: #111; }
+    @media (prefers-color-scheme: dark) { .s { fill: #fff; } }
+  </style>
+  <rect class="s" transform="matrix(2.95491 0 -1.09158 1.87961 3758.7 5492.22)" width="1588" height="194"/>
+  <rect class="s" transform="matrix(1.94873 0 -1.0464 1.87961 4918.19 6259.37)" width="1588" height="194"/>
+  <rect class="s" transform="matrix(1.0901 0 -1.05469 1.87961 5864.2 6996.89)" width="1588" height="194"/>
+</svg>
