@@ -966,11 +966,13 @@
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Odesílání…';
       emailjs.send('service_o2tt8pj', 'template_2bqt3u5', {
-        from_name: data.name,
-        from_email: data.email,
-        from_phone: data.phone,
-        from_course: data.course,
-        message: data.message
+        name:      data.name,
+        phone:     data.phone,
+        phone_raw: data.phone.replace(/\s/g, ''),
+        email:     data.email,
+        course:    data.course,
+        message:   data.message || 'Zákazník nevyplnil zprávu.',
+        sent_at:   new Date().toLocaleString('cs-CZ', { dateStyle: 'short', timeStyle: 'short' }),
       }).then(function () {
         const success = document.createElement('div');
         success.className = 'form-success';
