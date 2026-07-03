@@ -29,10 +29,13 @@
 <meta name="geo.placename" content="Ústí nad Labem" />
 <meta name="geo.position" content="50.6607;14.0335" />
 <meta name="ICBM" content="50.6607, 14.0335" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="preload" as="image" href="images/hero_section.webp" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/BarlowCondensed-800-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/BarlowCondensed-800-latin-ext.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/BarlowCondensed-800i-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/BarlowCondensed-800i-latin-ext.woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tabler-subset.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">
 {
@@ -334,6 +337,12 @@
   .course--feature{grid-template-columns:1fr}
   .course__visual{display:none}
 }
+/* Hero intro — čistá CSS animace nezávislá na JS, aby LCP nečekal na app.js */
+@keyframes hero-in{from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none}}
+.hero [data-anim]{opacity:1; transform:none; animation:hero-in .7s cubic-bezier(.2,.7,.2,1) backwards}
+.hero [data-anim][data-delay="2"]{animation-delay:.12s}
+.hero [data-anim][data-delay="3"]{animation-delay:.24s}
+@media (prefers-reduced-motion: reduce){.hero [data-anim]{animation:none}}
 
 /* STATS */
 .stats{background:var(--ink-2); color:#fff; padding:48px 0; position:relative; overflow:hidden}
@@ -572,7 +581,7 @@
 <!-- NAV -->
 <nav class="nav" id="siteNav" aria-label="Hlavní navigace">
   <div class="nav__inner">
-    <a href="#hero" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" height="34"></a>
+    <a href="#hero" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" width="135" height="34"></a>
     <div class="nav__links">
       <a href="#kurzy">Kurzy</a>
       <a href="instruktori.html">Instruktoři</a>
@@ -621,7 +630,7 @@
 
   <!-- Foto motorky — pravá strana -->
   <div class="hero__photo" aria-hidden="true">
-    <img src="images/hero_section.jpg" alt="Motocykl Autoškoly Nečas — výcvik v Ústí nad Labem">
+    <img src="images/hero_section.webp" width="1792" height="1008" fetchpriority="high" alt="Motocykl Autoškoly Nečas — výcvik v Ústí nad Labem">
   </div>
 
   <!-- Textový obsah — levá strana -->
@@ -736,7 +745,7 @@
       <!-- Skupina A — přehled -->
       <article class="course course--group" data-anim="up">
         <div class="course__group-img">
-          <img src="images/group-A.jpg" alt="Skupina A — motocykly">
+          <img src="images/group-A.webp" width="1344" height="1008" loading="lazy" alt="Skupina A — motocykly">
         </div>
         <div class="course__group-body">
           <div class="course__group">A · A2 · A1 · AM</div>
@@ -753,7 +762,7 @@
       <!-- Skupina B — přehled -->
       <article class="course course--group" data-anim="up" data-delay="1">
         <div class="course__group-img">
-          <img src="images/group-B2.jpg" alt="Skupina B — automobily">
+          <img src="images/group-B2.webp" width="1344" height="1008" loading="lazy" alt="Skupina B — automobily">
         </div>
         <div class="course__group-body">
           <div class="course__group">B <span class="age">od 18 let</span></div>
@@ -765,7 +774,7 @@
       <!-- Sdružený A+B -->
       <article class="course course--group course--single" data-anim="up">
         <div class="course__group-img">
-          <img src="images/A+B.jpg" alt="Sdružený výcvik A+B">
+          <img src="images/A+B.webp" width="1344" height="1008" loading="lazy" alt="Sdružený výcvik A+B">
         </div>
         <div class="course__group-body">
           <div class="course__group">A+B <span class="age">od 24 let</span></div>
@@ -777,7 +786,7 @@
       <!-- Sdružený A2+B -->
       <article class="course course--group course--single" data-anim="up" data-delay="1">
         <div class="course__group-img">
-          <img src="images/A2+B.jpg" alt="Sdružený výcvik A2+B">
+          <img src="images/A2+B.webp" width="1344" height="1008" loading="lazy" alt="Sdružený výcvik A2+B">
         </div>
         <div class="course__group-body">
           <div class="course__group">A2+B <span class="age">od 18 let</span></div>
@@ -789,7 +798,7 @@
       <!-- Sdružený A1+B -->
       <article class="course course--group course--single" data-anim="up">
         <div class="course__group-img">
-          <img src="images/A1+B.jpg" alt="Sdružený výcvik A1+B">
+          <img src="images/A1+B.webp" width="1344" height="1008" loading="lazy" alt="Sdružený výcvik A1+B">
         </div>
         <div class="course__group-body">
           <div class="course__group">A1+B <span class="age">od 18 let</span></div>
@@ -800,7 +809,7 @@
 
       <!-- Kondiční -->
       <article class="course course--group course--single" data-anim="up">
-        <div class="course__group-img"><img src="images/kondicni_jizdy.png" alt="Kondiční jízdy"></div>
+        <div class="course__group-img"><img src="images/kondicni_jizdy.webp" width="1448" height="1086" loading="lazy" alt="Kondiční jízdy"></div>
         <div class="course__group-body">
           <div class="course__group">+ <span class="age">90 min</span></div>
           <div class="course__name-row"><div class="course__name">Kondiční &amp;&nbsp;doplňkový výcvik</div><a href="cenik.html#kondicni" class="course__more">Zjisti více</a></div>
@@ -921,7 +930,7 @@
   <div class="container">
     <div class="footer__inner">
       <div class="footer__brand">
-        <a href="#hero" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" height="28"></a>
+        <a href="#hero" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" width="111" height="28"></a>
         <p>Rodinná autoškola s 34letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
       </div>
       <div><h5>Stránky</h5><ul><li><a href="#kurzy">Kurzy</a></li><li><a href="instruktori.html">Instruktoři</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="cenik.html">Ceník</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
@@ -937,11 +946,11 @@
 
 
 <!-- Scripts -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 <script type="text/javascript">
-  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
     emailjs.init({ publicKey: "HNCCRyj8jD7fUV6sC", blockHeadless: true });
-  })();
+  });
 </script>
 <script src="js/app.js" defer></script>
 <script>
