@@ -79,6 +79,21 @@
     }
   }
 
+  /* ── Proces: postupné zvýraznění kroků při scrollu (mobil/tablet) ── */
+  const processTrack = document.querySelector('.process__steps');
+  const processSteps = processTrack ? Array.from(processTrack.querySelectorAll('.step')) : [];
+  if (processSteps.length && 'IntersectionObserver' in window) {
+    const stepIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          processTrack.classList.add('is-scrolling');
+          processSteps.forEach(s => s.classList.toggle('is-active', s === entry.target));
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    processSteps.forEach(s => stepIO.observe(s));
+  }
+
   /* ── FAQ accordion ── */
   document.querySelectorAll('.faq__q').forEach(btn => {
     btn.addEventListener('click', () => {
