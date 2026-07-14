@@ -478,11 +478,22 @@
 .process__steps::before{content:""; position:absolute; left:0; right:0; top:48px; height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.18) 8%, rgba(255,255,255,.18) 92%, transparent)}
 .step{padding:0 18px; position:relative; border-left:1px solid rgba(255,255,255,.08)}
 .step:first-child{border-left:none; padding-left:0}
-.step__num{width:96px; height:96px; border-radius:50%; background:var(--ink-2); border:1px solid rgba(255,255,255,.12); font-family:var(--f-display); font-weight:700; font-size:34px; display:flex; align-items:center; justify-content:center; margin-bottom:24px; position:relative; z-index:1; color:rgba(255,255,255,.85)}
-.step.is-active .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25)}
+.step__num{width:96px; height:96px; border-radius:50%; background:var(--ink-2); border:1px solid rgba(255,255,255,.12); font-family:var(--f-display); font-weight:700; font-size:34px; display:flex; align-items:center; justify-content:center; margin-bottom:24px; position:relative; z-index:1; color:rgba(255,255,255,.85); transition:background-color .3s ease, border-color .3s ease, color .3s ease, box-shadow .3s ease, transform .3s ease}
+.step h3, .step p{transition:opacity .3s ease}
 .step h3{font-size:22px; text-transform:uppercase; font-family:var(--f-display); font-weight:800; letter-spacing:.01em; margin-bottom:10px}
 .step p{color:rgba(255,255,255,.65); font-size:14.5px; line-height:1.55}
-@media (max-width:880px){.process__steps{grid-template-columns:1fr 1fr} .process__steps::before{display:none} .step{border-left:none; padding:0; margin-bottom:32px}}
+@media (max-width:880px){
+  .process__steps{grid-template-columns:1fr 1fr} .process__steps::before{display:none} .step{border-left:none; padding:0; margin-bottom:32px}
+  .step.is-active .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25); transform:scale(1.05)}
+  .process__steps.is-scrolling .step:not(.is-active) h3,
+  .process__steps.is-scrolling .step:not(.is-active) p{opacity:.4}
+}
+@media (hover:hover) and (pointer:fine){
+  .step:hover .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25); transform:scale(1.05)}
+  .step:hover h3, .step:hover p{opacity:1}
+  .process__steps:hover .step:not(:hover) h3,
+  .process__steps:hover .step:not(:hover) p{opacity:.4}
+}
 
 /* PRICE TABLE */
 .price-list{display:flex; flex-direction:column; gap:10px}
@@ -831,7 +842,7 @@
       </div>
     </div>
     <div class="process__steps">
-      <div class="step is-active" data-anim="up"><div class="step__num">01</div><h3>Přihláška</h3><p>Vyplň online přihlášku nebo přijď osobně do&nbsp;učebny.</p></div>
+      <div class="step" data-anim="up"><div class="step__num">01</div><h3>Přihláška</h3><p>Vyplň online přihlášku nebo přijď osobně do&nbsp;učebny.</p></div>
       <div class="step" data-anim="up" data-delay="1"><div class="step__num">02</div><h3>Teorie</h3><p>Výuka v&nbsp;moderní počítačové učebně.</p></div>
       <div class="step" data-anim="up" data-delay="2"><div class="step__num">03</div><h3>Jízdy</h3><p>Trenažér + reálná jízda s&nbsp;profesionálním instruktorem.</p></div>
       <div class="step" data-anim="up" data-delay="3"><div class="step__num">04</div><h3>Zkouška</h3><p>Závěrečná zkouška z&nbsp;testu, jízdy a&nbsp;ovládání.</p></div>
