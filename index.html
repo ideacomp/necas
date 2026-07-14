@@ -489,6 +489,9 @@
   .process__steps.is-scrolling .step:not(.is-active) p{opacity:.4}
 }
 @media (hover:hover) and (pointer:fine){
+  .process__steps:not(:hover) .step:first-child .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25)}
+  .process__steps:not(:hover) .step:not(:first-child) h3,
+  .process__steps:not(:hover) .step:not(:first-child) p{opacity:.4}
   .step:hover .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25); transform:scale(1.05)}
   .step:hover h3, .step:hover p{opacity:1}
   .process__steps:hover .step:not(:hover) h3,
