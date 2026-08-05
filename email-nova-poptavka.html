@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--
+    ============================================================
+    EMAIL: Notifikace nové poptávky — Autoškola Nečas
+    Odesílatel: web@autoskolanecas.cz  (nebo noreply@...)
+    Příjemce:   autoskola.necas@seznam.cz
+    Předmět:    Nová poptávka z webu — {{name}}
+    ============================================================
+
+    EMAILJS PROMĚNNÉ — mapují se přímo z polí formuláře:
+      {{name}}       — pole name="name"     — celé jméno zákazníka
+      {{phone}}      — pole name="phone"    — telefon (zobrazení i href)
+      {{phone_raw}}  — předat z JS          — telefon bez mezer pro tel: href
+      {{email}}      — pole name="email"    — e-mailová adresa
+      {{course}}     — pole name="course"   — vybraný kurz
+      {{message}}    — pole name="message"  — zpráva (prázdná → záloha níže)
+      {{sent_at}}    — předat z JS          — datum a čas odeslání
+
+    EMAILJS — příklad volání v app.js:
+      emailjs.send('SERVICE_ID', 'TEMPLATE_ID', {
+        name:      form.name.value,
+        phone:     form.phone.value,
+        phone_raw: form.phone.value.replace(/\s/g, ''),
+        email:     form.email.value,
+        course:    form.course.value,
+        message:   form.message.value || 'Zákazník nevyplnil zprávu.',
+        sent_at:   new Date().toLocaleString('cs-CZ', { dateStyle: 'short', timeStyle: 'short' }),
+      })
+
+    KOMPATIBILITA:
+      Testováno pro Gmail, Apple Mail, Outlook 2016+, Seznam Mail.
+      Outlook nezobrazuje border-radius (rohy jsou rovné — funkčně OK).
+    ============================================================
+  -->
+  <title>Nová poptávka z webu — {{name}}</title>
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+  <style>
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
+    img { border: 0; display: block; outline: none; }
+    body { margin: 0; padding: 0; background-color: #ECEAE5; }
+
+    @media screen and (max-width: 600px) {
+      .email-card  { width: 100% !important; border-radius: 0 !important; }
+      .caller-cell { display: block !important; width: 100% !important; border-right: none !important; border-bottom: 1px solid #E2E0DB !important; }
+      .caller-cell:last-child { border-bottom: none !important; }
+      .btn-cell    { display: block !important; width: 100% !important; padding: 0 0 8px !important; }
+      .btn-cell:last-child { padding-bottom: 0 !important; }
+      .btn-link    { display: block !important; width: auto !important; }
+      .footer-cell { display: block !important; width: 100% !important; text-align: left !important; padding-bottom: 4px !important; }
+    }
+  </style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#ECEAE5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">
+
+<!-- ── Outer wrapper ─────────────────────────────────────── -->
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center" style="padding:36px 16px 64px;background-color:#ECEAE5;">
+
+      <!-- ── Email card ───────────────────────────────────── -->
+      <table class="email-card" width="600" cellpadding="0" cellspacing="0" role="presentation"
+             style="background-color:#ffffff;border:1px solid #E2E0DB;border-radius:10px;overflow:hidden;">
+
+        <!-- Gold stripe -->
+        <tr>
+          <td height="4" bgcolor="#F5B800"
+              style="background-color:#F5B800;font-size:0;line-height:0;">&nbsp;</td>
+        </tr>
+
+        <!-- ── Header ──────────────────────────────────────── -->
+        <tr>
+          <td bgcolor="#0D1B3E" style="background-color:#0D1B3E;padding:18px 32px;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <!-- Logo -->
+                <td valign="middle">
+                  <p style="margin:0 0 2px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.35);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Autoškola</p>
+                  <p style="margin:0;font-size:18px;font-weight:800;letter-spacing:-.04em;color:#ffffff;line-height:1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">NEČAS<span style="color:#F5B800;">.</span></p>
+                </td>
+                <!-- Badge -->
+                <td align="right" valign="middle">
+                  <span style="display:inline-block;background-color:#F5B800;color:#0D1B3E;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;padding:5px 12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Nová poptávka</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+
+        <!-- ── Main content ─────────────────────────────────── -->
+        <tr>
+          <td style="padding:28px 32px;background-color:#ffffff;">
+
+            <!-- Caller card -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
+                   style="border:1px solid #E2E0DB;border-radius:10px;overflow:hidden;margin-bottom:24px;">
+
+              <!-- Name row -->
+              <tr>
+                <td style="padding:20px 24px 18px;border-bottom:1px solid #E2E0DB;background-color:#ffffff;">
+                  <p style="margin:0 0 5px;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#4A5E8A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Zákazník</p>
+                  <p style="margin:0;font-size:22px;font-weight:800;letter-spacing:-.03em;color:#0D1B3E;line-height:1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">{{name}}</p>
+                </td>
+              </tr>
+
+              <!-- Phone + email row -->
+              <tr>
+                <td style="background-color:#ffffff;">
+                  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <!-- Phone -->
+                      <td class="caller-cell" width="50%"
+                          style="padding:16px 24px;border-right:1px solid #E2E0DB;vertical-align:top;">
+                        <p style="margin:0 0 4px;font-size:9px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:#9AA4BC;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Telefon</p>
+                        <a href="tel:{{phone_raw}}"
+                           style="font-size:17px;font-weight:700;color:#0055CC;text-decoration:none;letter-spacing:-.01em;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">{{phone}}</a>
+                      </td>
+                      <!-- Email -->
+                      <td class="caller-cell"
+                          style="padding:16px 24px;vertical-align:top;">
+                        <p style="margin:0 0 4px;font-size:9px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:#9AA4BC;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">E-mail</p>
+                        <a href="mailto:{{email}}"
+                           style="font-size:14px;font-weight:700;color:#0055CC;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">{{email}}</a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!-- /Caller card -->
+
+            <!-- Details label -->
+            <p style="margin:0 0 10px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#F5B800;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Detaily poptávky</p>
+
+            <!-- Details box -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
+                   style="background-color:#F5F4F2;border:1px solid #E2E0DB;border-radius:8px;overflow:hidden;margin-bottom:24px;">
+              <!-- Course -->
+              <tr>
+                <td width="80" valign="top" style="padding:11px 0 11px 18px;border-bottom:1px solid #E2E0DB;">
+                  <span style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:#8A97B5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Kurz</span>
+                </td>
+                <td valign="top" style="padding:11px 18px 11px 12px;border-bottom:1px solid #E2E0DB;">
+                  <!--[if !mso]><!-->
+                  <span style="display:inline-block;background-color:#FDF8E4;border:1px solid #E8C94A;border-radius:5px;padding:1px 9px 2px;font-size:13px;font-weight:700;color:#3B2A00;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">{{course}}</span>
+                  <!--<![endif]-->
+                  <!--[if mso]>
+                  <span style="font-size:13px;font-weight:700;color:#3B2A00;font-family:sans-serif;">{{course}}</span>
+                  <![endif]-->
+                </td>
+              </tr>
+              <!-- Message -->
+              <tr>
+                <td width="80" valign="top" style="padding:11px 0 11px 18px;">
+                  <span style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:#8A97B5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Zpráva</span>
+                </td>
+                <td valign="top" style="padding:11px 18px 11px 12px;">
+                  <span style="font-size:14px;color:#0D1B3E;font-weight:500;line-height:1.6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">{{message}}</span>
+                </td>
+              </tr>
+            </table>
+            <!-- /Details box -->
+
+            <!-- Action buttons -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <!-- Button: Call -->
+                <td class="btn-cell" width="50%" style="padding-right:5px;">
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                               xmlns:w="urn:schemas-microsoft-com:office:word"
+                               href="tel:{{phone_raw}}"
+                               style="height:44px;v-text-anchor:middle;width:260px;"
+                               arcsize="9%" strokecolor="#0D1B3E" fillcolor="#0D1B3E">
+                    <w:anchorlock/>
+                    <center style="color:#F5B800;font-family:sans-serif;font-size:13px;font-weight:700;letter-spacing:.01em;">Zavolat zákazníkovi</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--[if !mso]><!-->
+                  <a href="tel:{{phone_raw}}" class="btn-link"
+                     style="display:block;background-color:#0D1B3E;color:#F5B800;text-align:center;padding:13px 20px;border-radius:8px;font-size:13.5px;font-weight:700;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Zavolat zákazníkovi</a>
+                  <!--<![endif]-->
+                </td>
+                <!-- Button: Email -->
+                <td class="btn-cell" width="50%" style="padding-left:5px;">
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                               xmlns:w="urn:schemas-microsoft-com:office:word"
+                               href="mailto:{{email}}"
+                               style="height:44px;v-text-anchor:middle;width:260px;"
+                               arcsize="9%" strokecolor="#E2E0DB" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                    <center style="color:#0D1B3E;font-family:sans-serif;font-size:13px;font-weight:700;">Napsat e-mail</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--[if !mso]><!-->
+                  <a href="mailto:{{email}}" class="btn-link"
+                     style="display:block;background-color:#ffffff;color:#0D1B3E;text-align:center;padding:13px 20px;border-radius:8px;font-size:13.5px;font-weight:700;text-decoration:none;border:1px solid #E2E0DB;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Napsat e-mail</a>
+                  <!--<![endif]-->
+                </td>
+              </tr>
+            </table>
+            <!-- /Action buttons -->
+
+          </td>
+        </tr>
+
+        <!-- ── Footer ──────────────────────────────────────── -->
+        <tr>
+          <td bgcolor="#F5F4F2"
+              style="background-color:#F5F4F2;border-top:1px solid #E2E0DB;padding:16px 32px;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td class="footer-cell" valign="middle">
+                  <span style="font-size:12px;font-weight:700;color:#4A5E8A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Autoškola Nečas</span>
+                </td>
+                <td class="footer-cell" align="right" valign="middle">
+                  <span style="font-size:11px;color:#9AA4BC;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;">Odesláno z formuláře na autoskolanecas.cz</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+      <!-- /Email card -->
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
