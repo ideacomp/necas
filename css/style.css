@@ -246,35 +246,6 @@ p { margin: 0 0 1em }
 }
 .nav__phone svg { width: 14px; height: 14px; color: var(--red) }
 .nav__phone:hover { background: rgba(15, 17, 23, .06) }
-/* Rezervace jízd — vstup do rezervačního systému na subdoméně.
-   Vyplněné tlačítko, ne další odkaz v řadě: přihlašuje se sem opakovaně
-   každý žák, kdežto ostatní položky v navigaci čte člověk jednou. Žlutá
-   na bílé má kontrast ~1,9 : 1, takže smí být jen výplň s tmavým textem. */
-.nav__book {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--ink);
-  background: var(--red);
-  padding: 9px 15px;
-  border-radius: 999px;
-  white-space: nowrap;
-  transition: background .15s ease;
-}
-.nav__book svg { width: 15px; height: 15px }
-.nav__book:hover { background: var(--red-2) }
-/* V průhledné hlavičce nad fotkou zůstává tlačítko stejné — je to jediný
-   prvek, který má být vidět vždycky. */
-.nav.is-transparent .nav__book { color: var(--ink) }
-@media (max-width: 420px) {
-  /* Na nejužších telefonech ustoupí popisek ikoně, ať se vejde burger. */
-  .nav__book span { display: none }
-  .nav__book { padding: 9px 11px }
-}
-
 .nav__burger {
   display: none;
   width: 42px;
