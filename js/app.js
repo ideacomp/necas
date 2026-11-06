@@ -82,16 +82,33 @@
   /* ── Proces: postupné zvýraznění kroků při scrollu (mobil/tablet) ── */
   const processTrack = document.querySelector('.process__steps');
   const processSteps = processTrack ? Array.from(processTrack.querySelectorAll('.step')) : [];
-  if (processSteps.length && 'IntersectionObserver' in window) {
-    const stepIO = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          processTrack.classList.add('is-scrolling');
-          processSteps.forEach(s => s.classList.toggle('is-active', s === entry.target));
-        }
+  /* Na tabletu jsou kroky ve dvou sloupcích, takže dvojice projdou středem
+     obrazovky naráz. Výška řádku se proto rozdělí mezi jeho sloupce a kroky
+     v řádku se zvýrazní postupně zleva doprava. */
+  if (processSteps.length) {
+    let ticking = false;
+    const updateSteps = () => {
+      ticking = false;
+      const mid = window.innerHeight / 2;
+      // offsetTop místo getBoundingClientRect — náběhová animace (data-anim)
+      // kroky posouvá transformem a zkreslila by rozdělení do řádků.
+      const trackTop = processTrack.getBoundingClientRect().top;
+      const rows = [];
+      processSteps.forEach(s => {
+        const top = trackTop + s.offsetTop, bottom = top + s.offsetHeight;
+        const row = rows.find(x => x.top === top);
+        if (row) { row.steps.push(s); row.bottom = Math.max(row.bottom, bottom); }
+        else rows.push({ top, bottom, steps: [s] });
       });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-    processSteps.forEach(s => stepIO.observe(s));
+      const row = rows.find(x => mid >= x.top && mid < x.bottom);
+      if (!row) return;
+      const i = Math.min(row.steps.length - 1, Math.floor((mid - row.top) / (row.bottom - row.top) * row.steps.length));
+      processTrack.classList.add('is-scrolling');
+      processSteps.forEach(s => s.classList.toggle('is-active', s === row.steps[i]));
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(updateSteps); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
   }
 
   /* ── FAQ accordion ── */
